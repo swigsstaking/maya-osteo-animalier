@@ -6,7 +6,7 @@ site Wix `maya-osteo-animalier.ch`.
 | Champ | Valeur |
 |---|---|
 | Stack | React 19 + Vite + Tailwind 3 + React Router 6 |
-| Backend | **aucun** — le site est 100 % statique |
+| Backend | `server.js` — serveur statique Node, sans dépendance |
 | Hébergement | Swigs Cloud (Suisse) |
 | Domaine visé | `maya-osteo-animalier.ch` (encore sur Wix au 11.09.2026) |
 
@@ -42,6 +42,18 @@ Quand on ajoute une page, quatre endroits à synchroniser :
 `src/App.jsx` (route) · `src/components/Layout.jsx` (navigation) ·
 `src/data/seo.json` (métadonnées) · `scripts/prerender.mjs` (`ROUTES`) ·
 et `public/sitemap.xml`.
+
+### Pourquoi il y a un `server.js`
+
+L'hébergeur sert les fichiers en `try_files $uri /index.html` : il ne résout pas les
+index de répertoire. `/tarifs` renvoyait donc le HTML de l'accueil — 200 pour le
+visiteur, mais tous les robots voyaient la page d'accueil sur chacune des onze URL,
+avec la même balise canonique. `server.js` (Node pur, aucune dépendance) résout
+`/tarifs` → `dist/tarifs/index.html`, renvoie un vrai 404 sur les assets absents, et
+ne retombe sur l'accueil qu'en dernier recours.
+
+Il gère aussi le cache : `no-cache` sur le HTML, cinq minutes sur les JS/CSS — ils
+n'ont plus d'empreinte de contenu dans leur nom — et une semaine sur les images.
 
 ## Où se trouve quoi
 

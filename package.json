@@ -8,6 +8,7 @@
     "dev": "vite",
     "build": "vite build && node scripts/apply-prerender.mjs",
     "prerender": "vite build && node scripts/prerender.mjs",
+    "start": "node server.js",
     "preview": "vite preview"
   },
   "dependencies": {
