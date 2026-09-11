@@ -9,7 +9,13 @@ import { createServer } from 'node:http'
 import { readFile, writeFile, mkdir, stat } from 'node:fs/promises'
 import { join, extname, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import puppeteer from 'puppeteer'
+let puppeteer
+try {
+  puppeteer = (await import('puppeteer')).default
+} catch {
+  console.warn('  prerender : puppeteer indisponible, build livré sans prérendu.')
+  process.exit(0)
+}
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const DIST = join(__dirname, '..', 'dist')
@@ -64,7 +70,14 @@ const server = createServer(async (req, res) => {
 
 await new Promise((r) => server.listen(PORT, r))
 
-const browser = await puppeteer.launch({ headless: 'new', args: ['--no-sandbox'] })
+let browser
+try {
+  browser = await puppeteer.launch({ headless: 'new', args: ['--no-sandbox', '--disable-dev-shm-usage'] })
+} catch (e) {
+  console.warn(`  prerender : Chromium n'a pas démarré (${e.message}). Build livré sans prérendu.`)
+  server.close()
+  process.exit(0)
+}
 let ok = 0
 for (const route of ROUTES) {
   const page = await browser.newPage()
