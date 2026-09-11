@@ -15,14 +15,28 @@ site Wix `maya-osteo-animalier.ch`.
 ```bash
 npm install
 npm run dev          # serveur local
-npm run build        # build simple
-npm run build:ssg    # build + prérendu statique -> à utiliser pour déployer
+npm run build        # ce que lance l'hébergeur : vite build + copie du prérendu
+npm run prerender    # à relancer EN LOCAL après toute modification de contenu
 ```
 
-`build:ssg` lance Puppeteer et écrit un `dist/<route>/index.html` complet par page.
-C'est ce qui donne un HTML lisible sans JavaScript (moteurs et IA) **et** ce qui évite
-le 404 sur les liens profonds, puisqu'aucun fallback SPA n'est configuré côté serveur.
-À faire tourner **en local** : le prérendu est trop lourd pour un builder distant.
+### Le prérendu, et pourquoi il est en deux temps
+
+Chaque route est livrée comme un vrai `dist/<route>/index.html` complet : c'est ce qui
+donne un HTML lisible sans JavaScript (moteurs et IA) **et** ce qui évite le 404 sur
+les liens profonds, aucun fallback SPA n'étant configuré côté serveur.
+
+Ce HTML est produit par `npm run prerender`, qui charge chaque page dans Chromium via
+Puppeteer et enregistre le DOM final. Chromium est trop lourd pour le builder de
+l'hébergeur — un premier déploiement s'y est enlisé plus de quinze minutes. Le prérendu
+tourne donc **en local**, son résultat est versionné dans `prerendered/`, et le build
+distant se contente de le recopier (`scripts/apply-prerender.mjs`, Node pur).
+
+Conséquence à retenir : **une modification de contenu n'apparaît en ligne que si l'on a
+relancé `npm run prerender` et versionné `prerendered/`.** Un simple `npm run build`
+recopierait l'ancien HTML.
+
+C'est aussi pourquoi `vite.config.js` fixe des noms d'assets sans empreinte de contenu
+(`assets/index.js`) : le HTML versionné doit rester valide après un build distant.
 
 Quand on ajoute une page, quatre endroits à synchroniser :
 `src/App.jsx` (route) · `src/components/Layout.jsx` (navigation) ·
@@ -112,15 +126,18 @@ elles sont à compléter :
 
 ## Déploiement
 
-Build local puis envoi de `dist/` sur Swigs Cloud via le MCP `swigs-cloud`.
+
+
+Le projet est déployé depuis le dépôt public `swigsstaking/maya-osteo-animalier`.
 
 ```
-npm run build:ssg
-→ mcp swigs-cloud deploy   (première fois seulement)
+npm run prerender      # si le contenu a changé
+git commit && git push
+→ mcp swigs-cloud redeploy   (id du projet)
 → mcp swigs-cloud project_status   jusqu'à « running »
 ```
 
-Pour toute mise à jour ultérieure : **`update_site`**, jamais `deploy` — un second
-`deploy` créerait un deuxième projet et consommerait un slot du quota.
+`redeploy` reprend le dernier commit. **Ne jamais relancer `deploy`** : cela créerait
+un deuxième projet et consommerait un slot du quota.
 
 Bascule du domaine : à faire après validation par Maya, le site vit encore sur Wix.

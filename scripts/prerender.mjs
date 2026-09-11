@@ -19,6 +19,8 @@ try {
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const DIST = join(__dirname, '..', 'dist')
+// Versionné : c'est ce dossier que le build distant recopie (voir apply-prerender.mjs).
+const PRERENDERED = join(__dirname, '..', 'prerendered')
 const PORT = 5188
 
 const ROUTES = [
@@ -88,9 +90,11 @@ for (const route of ROUTES) {
     await page.goto(`http://localhost:${PORT}${route}`, { waitUntil: 'networkidle0', timeout: 60000 })
     await new Promise((r) => setTimeout(r, 2500))
     const html = '<!DOCTYPE html>\n' + (await page.evaluate(() => document.documentElement.outerHTML))
-    const outDir = route === '/' ? DIST : join(DIST, route)
-    await mkdir(outDir, { recursive: true })
-    await writeFile(join(outDir, 'index.html'), html)
+    for (const base of [DIST, PRERENDERED]) {
+      const outDir = route === '/' ? base : join(base, route)
+      await mkdir(outDir, { recursive: true })
+      await writeFile(join(outDir, 'index.html'), html)
+    }
     const words = html.replace(/<script[\s\S]*?<\/script>/gi, ' ').replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length
     console.log(`  prerendu ${route.padEnd(18)} -> ${words} mots`)
     ok++

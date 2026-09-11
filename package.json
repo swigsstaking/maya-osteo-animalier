@@ -6,8 +6,8 @@
   "description": "Site de Maya Arnould, ostéopathe animalier — Chambrelien (NE), Suisse",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node scripts/prerender.mjs",
-    "build:fast": "vite build",
+    "build": "vite build && node scripts/apply-prerender.mjs",
+    "prerender": "vite build && node scripts/prerender.mjs",
     "preview": "vite preview"
   },
   "dependencies": {
