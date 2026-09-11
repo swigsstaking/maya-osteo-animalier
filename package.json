@@ -1,0 +1,27 @@
+{
+  "name": "maya-osteo-animalier",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Site de Maya Arnould, ostéopathe animalier — Chambrelien (NE), Suisse",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build:ssg": "vite build && node scripts/prerender.mjs",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "lucide-react": "^1.45.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-router-dom": "^6.22.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.0.4",
+    "autoprefixer": "^10.4.17",
+    "postcss": "^8.4.35",
+    "puppeteer": "^25.5.0",
+    "tailwindcss": "^3.4.1",
+    "vite": "^7.1.7"
+  }
+}

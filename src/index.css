@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream text-ink font-sans antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display font-light tracking-title text-ink;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-brick ring-offset-2 ring-offset-cream rounded-sm;
+  }
+}
+
+@layer components {
+  .container-site {
+    @apply mx-auto w-full max-w-site px-5 sm:px-8 lg:px-10;
+  }
+
+  .section {
+    @apply py-18 md:py-30;
+  }
+
+  /* Surtitre en capitales espacées — le seul élément « graphique » du texte */
+  .eyebrow {
+    @apply text-[11px] uppercase tracking-overline text-clay font-medium;
+  }
+
+  .h-display {
+    @apply text-[2rem] leading-[1.15] sm:text-[2.6rem] md:text-[3.25rem];
+  }
+
+  .h-section {
+    @apply text-[1.75rem] leading-[1.2] sm:text-[2.125rem] md:text-[2.5rem];
+  }
+
+  .lede {
+    @apply text-lg leading-relaxed text-muted max-w-prose;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3
+           text-sm font-medium tracking-wide transition-colors duration-200 cursor-pointer;
+  }
+
+  .btn-primary {
+    @apply btn bg-brick text-cream hover:bg-[#8F3A1A];
+  }
+
+  .btn-secondary {
+    @apply btn bg-blush text-ink hover:bg-powder;
+  }
+
+  .btn-outline {
+    @apply btn border border-powder text-ink hover:border-brick hover:text-brick;
+  }
+
+  .link-arrow {
+    @apply inline-flex items-center gap-2 text-brick text-sm font-medium
+           border-b border-powder pb-1 transition-colors duration-200 hover:border-brick;
+  }
+
+  .card {
+    @apply rounded-card bg-white/70 border border-powder/60 p-7;
+  }
+
+  .rule {
+    @apply h-px w-full bg-powder/70;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
