@@ -19,7 +19,7 @@ const Contact = () => (
       <div className="grid gap-14 lg:grid-cols-[1fr_0.7fr] lg:gap-16">
         <div>
           <DirectContact />
-          <Link to="/rendez-vous" className="btn-primary mt-8">Prendre rendez-vous</Link>
+          <Link to="/rendez-vous.html" className="btn-primary mt-8">Prendre rendez-vous</Link>
         </div>
 
         <div className="space-y-8">

@@ -49,7 +49,7 @@ export const ArrowLink = ({ to, children, className = '' }) => (
 export const CtaBand = ({
   title = 'Une question sur votre animal ?',
   text = 'Prenez rendez-vous en ligne, ou appelez-moi : je réponds du lundi au vendredi.',
-  secondary = { to: '/tarifs', label: 'Voir les tarifs' },
+  secondary = { to: '/tarifs.html', label: 'Voir les tarifs' },
 }) => (
   <Section tone="blush">
     <div className="flex flex-col items-start gap-8 md:flex-row md:items-center md:justify-between">
@@ -58,7 +58,7 @@ export const CtaBand = ({
         <p className="mt-4 max-w-lg text-base leading-relaxed text-muted">{text}</p>
       </div>
       <div className="flex shrink-0 flex-wrap gap-3">
-        <Link to="/rendez-vous" className="btn-primary">Prendre rendez-vous</Link>
+        <Link to="/rendez-vous.html" className="btn-primary">Prendre rendez-vous</Link>
         {secondary && (
           <Link to={secondary.to} className="btn-outline">{secondary.label}</Link>
         )}

@@ -16,7 +16,7 @@ const Blog = () => (
       <ul className="grid gap-10 md:grid-cols-2 lg:gap-12">
         {posts.map((post) => (
           <li key={post.slug}>
-            <Link to={`/blog/${post.slug}`} className="group block">
+            <Link to={`/blog/${post.slug}.html`} className="group block">
               <img
                 src={post.image}
                 alt={post.imageAlt}

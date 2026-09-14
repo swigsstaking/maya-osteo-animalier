@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Star, MapPin, Rabbit } from 'lucide-react'
+import { Star, MapPin, Rabbit, Phone } from 'lucide-react'
 import SEOHead from '../components/SEOHead'
 import { Section, SectionHead, ArrowLink, CtaBand } from '../components/ui'
 import { site } from '../data/site'
@@ -18,11 +18,15 @@ const Hero = () => (
         </h1>
         <p className="lede mt-6">
           Une approche douce et globale pour chevaux, chiens, chats, bovins et NAC.
-          Je me déplace chez vous, dans les cantons de Neuchâtel, Berne, Fribourg et Vaud.
+          Je me déplace chez vous, dans le canton de Neuchâtel et ses environs.
         </p>
         <div className="mt-9 flex flex-wrap gap-3">
-          <Link to="/rendez-vous" className="btn-primary">Prendre rendez-vous</Link>
-          <Link to="/tarifs" className="btn-outline">Les tarifs</Link>
+          <Link to="/rendez-vous.html" className="btn-primary">Prendre rendez-vous</Link>
+          <Link to="/tarifs.html" className="btn-outline">Les tarifs</Link>
+          <a href={site.phoneHref} className="btn-secondary">
+            <Phone size={15} strokeWidth={1.7} aria-hidden="true" />
+            {site.phoneDisplay}
+          </a>
         </div>
         <p className="mt-8 flex items-center gap-2 text-sm text-muted">
           <span className="flex gap-0.5" aria-hidden="true">
@@ -73,7 +77,7 @@ const Osteopathie = () => (
         <p className="mt-5 border-l-2 border-powder pl-5 text-sm leading-relaxed text-muted">
           {osteopathie.note}
         </p>
-        <ArrowLink to="/motifs" className="mt-8">Quand consulter ?</ArrowLink>
+        <ArrowLink to="/motifs.html" className="mt-8">Quand consulter ?</ArrowLink>
       </div>
     </div>
   </Section>
@@ -88,7 +92,7 @@ const QuiSuisJe = () => (
         {apropos.paragraphes.map((p) => (
           <p key={p} className="mt-4 text-base leading-relaxed text-muted">{p}</p>
         ))}
-        <ArrowLink to="/a-propos" className="mt-8">Mon parcours</ArrowLink>
+        <ArrowLink to="/a-propos.html" className="mt-8">Mon parcours</ArrowLink>
       </div>
       <img
         src="/images/maya-chien-malamute.webp"
@@ -151,7 +155,7 @@ const Deroulement = () => (
         </li>
       ))}
     </ol>
-    <ArrowLink to="/deroulement" className="mt-12">Le détail de chaque étape</ArrowLink>
+    <ArrowLink to="/deroulement.html" className="mt-12">Le détail de chaque étape</ArrowLink>
   </Section>
 )
 
@@ -170,7 +174,7 @@ const Motifs = () => (
         </li>
       ))}
     </ul>
-    <ArrowLink to="/motifs" className="mt-12">Tous les motifs en détail</ArrowLink>
+    <ArrowLink to="/motifs.html" className="mt-12">Tous les motifs en détail</ArrowLink>
   </Section>
 )
 
@@ -229,7 +233,7 @@ const Zone = () => (
           title="Je viens à vous"
           lede="Les consultations se déroulent à domicile pour les chiens, les chats et les NAC, et dans les installations hébergeant les chevaux et les bovins."
         />
-        <ArrowLink to="/tarifs" className="mt-8">Tarifs et déplacements</ArrowLink>
+        <ArrowLink to="/tarifs.html" className="mt-8">Tarifs et déplacements</ArrowLink>
       </div>
       <ul className="grid grid-cols-2 gap-3 self-center">
         {['Neuchâtel', 'Berne', 'Fribourg', 'Vaud'].map((c) => (

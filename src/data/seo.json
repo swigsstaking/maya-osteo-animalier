@@ -11,56 +11,103 @@
     "home": {
       "title": "Maya Arnould — Ostéopathe animalier | Neuchâtel, Berne, Fribourg, Vaud",
       "description": "Ostéopathie animale douce et globale pour chevaux, chiens, chats, bovins et NAC. Consultations à domicile dans les cantons de Neuchâtel, Berne, Fribourg et Vaud.",
-      "keywords": ["ostéopathe animalier", "ostéopathie animale", "Neuchâtel", "Suisse romande", "chien", "chat", "cheval", "bovin", "NAC"],
+      "keywords": [
+        "ostéopathe animalier",
+        "ostéopathie animale",
+        "Neuchâtel",
+        "Suisse romande",
+        "chien",
+        "chat",
+        "cheval",
+        "bovin",
+        "NAC"
+      ],
       "path": "/"
     },
     "apropos": {
       "title": "À propos de moi — Maya Arnould, ostéopathe animalier",
       "description": "Diplômée de l'ESAO en juillet 2023 après cinq années d'études. Mon parcours, mon approche de l'ostéopathie animale et mon mémoire sur les chiens de troupeaux.",
-      "keywords": ["Maya Arnould", "ESAO", "ostéopathe animalier diplômée", "parcours"],
-      "path": "/a-propos"
+      "keywords": [
+        "Maya Arnould",
+        "ESAO",
+        "ostéopathe animalier diplômée",
+        "parcours"
+      ],
+      "path": "/a-propos.html"
     },
     "deroulement": {
       "title": "Déroulement d'une séance — Ostéopathie animale",
       "description": "Les six étapes d'une consultation d'ostéopathie animale : anamnèse, examen palpatoire, examen dynamique, testings, traitement, rééducation et conseils.",
-      "keywords": ["déroulement séance", "consultation ostéopathie animale", "anamnèse", "testings"],
-      "path": "/deroulement"
+      "keywords": [
+        "déroulement séance",
+        "consultation ostéopathie animale",
+        "anamnèse",
+        "testings"
+      ],
+      "path": "/deroulement.html"
     },
     "motifs": {
       "title": "Motifs de consultation — Quand consulter un ostéopathe animalier ?",
       "description": "Bilan préventif, troubles locomoteurs, troubles fonctionnels, suivi sportif, suivi de croissance, rééducation post-opératoire : les raisons de consulter.",
-      "keywords": ["motifs de consultation", "boiterie", "arthrose", "suivi sportif", "rééducation"],
-      "path": "/motifs"
+      "keywords": [
+        "motifs de consultation",
+        "boiterie",
+        "arthrose",
+        "suivi sportif",
+        "rééducation"
+      ],
+      "path": "/motifs.html"
     },
     "tarifs": {
       "title": "Tarifs et zones de déplacement — Maya Arnould",
       "description": "Chevaux 140 CHF, bovins 120 CHF, chiens et chats 110 CHF, NAC 80 CHF. Consultations à domicile dans les cantons de Neuchâtel, Berne, Fribourg et Vaud.",
-      "keywords": ["tarifs ostéopathe animalier", "prix consultation", "zone de déplacement", "Suisse"],
-      "path": "/tarifs"
+      "keywords": [
+        "tarifs ostéopathe animalier",
+        "prix consultation",
+        "zone de déplacement",
+        "Suisse"
+      ],
+      "path": "/tarifs.html"
     },
     "blog": {
       "title": "Blog — Comprendre l'ostéopathie animale",
       "description": "Articles et repères sur l'ostéopathie animale : suivi du sportif, idées reçues, conseils pour le quotidien de votre animal.",
-      "keywords": ["blog ostéopathie animale", "conseils", "articles"],
-      "path": "/blog"
+      "keywords": [
+        "blog ostéopathie animale",
+        "conseils",
+        "articles"
+      ],
+      "path": "/blog.html"
     },
     "rendezvous": {
       "title": "Prendre rendez-vous — Maya Arnould, ostéopathe animalier",
       "description": "Prenez rendez-vous pour une consultation d'ostéopathie animale à domicile, dans les cantons de Neuchâtel, Berne, Fribourg et Vaud.",
-      "keywords": ["prendre rendez-vous", "réserver", "ostéopathe animalier Neuchâtel"],
-      "path": "/rendez-vous"
+      "keywords": [
+        "prendre rendez-vous",
+        "réserver",
+        "ostéopathe animalier Neuchâtel"
+      ],
+      "path": "/rendez-vous.html"
     },
     "contact": {
       "title": "Contact — Maya Arnould, ostéopathe animalier",
       "description": "Téléphone, WhatsApp et e-mail pour joindre Maya Arnould, ostéopathe animalier à Chambrelien (NE). Du lundi au vendredi, 8h00 à 18h30.",
-      "keywords": ["contact", "téléphone", "WhatsApp", "Chambrelien", "Rochefort"],
-      "path": "/contact"
+      "keywords": [
+        "contact",
+        "téléphone",
+        "WhatsApp",
+        "Chambrelien",
+        "Rochefort"
+      ],
+      "path": "/contact.html"
     },
     "mentions": {
       "title": "Mentions légales",
       "description": "Mentions légales du site de Maya Arnould, ostéopathe animalier.",
-      "keywords": ["mentions légales"],
-      "path": "/mentions-legales"
+      "keywords": [
+        "mentions légales"
+      ],
+      "path": "/mentions-legales.html"
     }
   }
 }

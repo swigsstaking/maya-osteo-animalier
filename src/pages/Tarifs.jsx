@@ -68,7 +68,7 @@ const Tarifs = () => (
       </div>
     </Section>
 
-    <CtaBand secondary={{ to: '/contact', label: 'Me contacter' }} />
+    <CtaBand secondary={{ to: '/contact.html', label: 'Me contacter' }} />
   </>
 )
 

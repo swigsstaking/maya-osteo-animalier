@@ -7,9 +7,11 @@ import { articleJsonLd } from '../data/jsonld'
 
 const Article = () => {
   const { slug } = useParams()
-  const post = getPost(slug)
+  // Les URL se terminent en .html (voir App.jsx) ; React Router ne sait pas
+  // capturer un segment partiel, on retire donc l'extension ici.
+  const post = getPost(slug.replace(/\.html$/, ''))
 
-  if (!post) return <Navigate to="/blog" replace />
+  if (!post) return <Navigate to="/blog.html" replace />
 
   const autres = posts.filter((p) => p.slug !== post.slug)
 
@@ -19,14 +21,14 @@ const Article = () => {
         page="blog"
         title={`${post.titre} — Blog de Maya Arnould`}
         description={post.resume}
-        path={`/blog/${post.slug}`}
+        path={`/blog/${post.slug}.html`}
         image={post.image}
         jsonLd={articleJsonLd(post)}
       />
 
       <div className="border-b border-powder/50 bg-sand">
         <div className="container-site py-16 md:py-24">
-          <Link to="/blog" className="inline-flex items-center gap-2 text-sm text-muted transition-colors hover:text-ink">
+          <Link to="/blog.html" className="inline-flex items-center gap-2 text-sm text-muted transition-colors hover:text-ink">
             <ArrowLeft size={15} strokeWidth={1.6} aria-hidden="true" /> Tous les articles
           </Link>
           <p className="eyebrow mt-10">{post.dateLisible} · {post.lecture}</p>
@@ -67,7 +69,7 @@ const Article = () => {
           <ul className="mt-8 grid gap-10 md:grid-cols-2">
             {autres.map((p) => (
               <li key={p.slug}>
-                <Link to={`/blog/${p.slug}`} className="group block">
+                <Link to={`/blog/${p.slug}.html`} className="group block">
                   <h3 className="text-xl transition-colors duration-200 group-hover:text-brick">{p.titre}</h3>
                   <p className="mt-3 text-[15px] leading-relaxed text-muted">{p.resume}</p>
                 </Link>

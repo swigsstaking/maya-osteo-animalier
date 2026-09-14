@@ -6,7 +6,7 @@ site Wix `maya-osteo-animalier.ch`.
 | Champ | Valeur |
 |---|---|
 | Stack | React 19 + Vite + Tailwind 3 + React Router 6 |
-| Backend | `server.js` — serveur statique Node, sans dépendance |
+| Backend | **aucun** — site statique ; `server.js` ne sert qu'aux tests locaux |
 | Hébergement | Swigs Cloud (Suisse) |
 | Domaine visé | `maya-osteo-animalier.ch` (encore sur Wix au 11.09.2026) |
 
@@ -21,7 +21,7 @@ npm run prerender    # à relancer EN LOCAL après toute modification de contenu
 
 ### Le prérendu, et pourquoi il est en deux temps
 
-Chaque route est livrée comme un vrai `dist/<route>/index.html` complet : c'est ce qui
+Chaque route est livrée comme un vrai fichier HTML complet (`dist/tarifs.html`) : c'est ce qui
 donne un HTML lisible sans JavaScript (moteurs et IA) **et** ce qui évite le 404 sur
 les liens profonds, aucun fallback SPA n'étant configuré côté serveur.
 
@@ -38,19 +38,36 @@ recopierait l'ancien HTML.
 C'est aussi pourquoi `vite.config.js` fixe des noms d'assets sans empreinte de contenu
 (`assets/index.js`) : le HTML versionné doit rester valide après un build distant.
 
-Quand on ajoute une page, quatre endroits à synchroniser :
-`src/App.jsx` (route) · `src/components/Layout.jsx` (navigation) ·
-`src/data/seo.json` (métadonnées) · `scripts/prerender.mjs` (`ROUTES`) ·
-et `public/sitemap.xml`.
+Quand on ajoute une page, cinq endroits à synchroniser — et l'adresse doit se terminer
+en `.html` partout : `src/App.jsx` (route + redirection sans extension) ·
+`src/components/Layout.jsx` (navigation) · `src/data/seo.json` (métadonnées) ·
+`scripts/prerender.mjs` (`ROUTES`) · `public/sitemap.xml`.
+
+### Pourquoi les URL se terminent en `.html`
+
+L'hébergeur sert les fichiers en `try_files $uri /index.html` : seul un chemin
+correspondant **exactement** à un fichier lui parvient. Il ne résout ni les index de
+répertoire (`/tarifs` → `tarifs/index.html`) ni l'extension implicite
+(`/tarifs` → `tarifs.html`). Sans `.html`, les onze URL renvoyaient toutes le HTML de
+l'accueil : invisible pour le visiteur, puisque React Router prenait le relais, mais
+Google voyait onze fois la même page avec la même balise canonique.
+
+Les routes portent donc l'extension : `/tarifs.html`, `/blog/<slug>.html`. Les adresses
+sans extension restent valides — `App.jsx` les redirige côté client.
+
+Une exception à connaître : React Router ne sait pas capturer un segment partiel, donc
+la route des articles reste `/blog/:slug` et `Article.jsx` retire l'extension lui-même.
 
 ### Pourquoi il y a un `server.js`
 
 L'hébergeur sert les fichiers en `try_files $uri /index.html` : il ne résout pas les
 index de répertoire. `/tarifs` renvoyait donc le HTML de l'accueil — 200 pour le
 visiteur, mais tous les robots voyaient la page d'accueil sur chacune des onze URL,
-avec la même balise canonique. `server.js` (Node pur, aucune dépendance) résout
-`/tarifs` → `dist/tarifs/index.html`, renvoie un vrai 404 sur les assets absents, et
-ne retombe sur l'accueil qu'en dernier recours.
+avec la même balise canonique. `server.js` (Node pur, aucune dépendance) le fait
+correctement en développement et resterait la bonne solution si la plateforme
+acceptait un jour de le lancer — **elle ne l'utilise pas aujourd'hui**, elle traite le
+projet comme un site statique. Il sert donc à tester le build en local
+(`node server.js`) et documente le comportement attendu.
 
 Il gère aussi le cache : `no-cache` sur le HTML, cinq minutes sur les JS/CSS — ils
 n'ont plus d'empreinte de contenu dans leur nom — et une semaine sur les images.

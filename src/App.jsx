@@ -19,15 +19,20 @@ function App() {
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/a-propos" element={<APropos />} />
-          <Route path="/deroulement" element={<Deroulement />} />
-          <Route path="/motifs" element={<Motifs />} />
-          <Route path="/tarifs" element={<Tarifs />} />
-          <Route path="/blog" element={<Blog />} />
+          <Route path="/a-propos.html" element={<APropos />} />
+          <Route path="/deroulement.html" element={<Deroulement />} />
+          <Route path="/motifs.html" element={<Motifs />} />
+          <Route path="/tarifs.html" element={<Tarifs />} />
+          <Route path="/blog.html" element={<Blog />} />
           <Route path="/blog/:slug" element={<Article />} />
-          <Route path="/rendez-vous" element={<RendezVous />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/mentions-legales" element={<MentionsLegales />} />
+          <Route path="/rendez-vous.html" element={<RendezVous />} />
+          <Route path="/contact.html" element={<Contact />} />
+          <Route path="/mentions-legales.html" element={<MentionsLegales />} />
+          {/* Une adresse sans .html (ancien lien, saisie manuelle) est
+              redirigée vers la page correspondante plutôt que vers l'accueil. */}
+          {['a-propos', 'deroulement', 'motifs', 'tarifs', 'blog', 'rendez-vous', 'contact', 'mentions-legales'].map(
+            (r) => <Route key={r} path={`/${r}`} element={<Navigate to={`/${r}.html`} replace />} />,
+          )}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Layout>

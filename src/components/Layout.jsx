@@ -8,12 +8,12 @@ import { site } from '../data/site'
 // `label` : libellé complet, utilisé dans le menu mobile et le pied de page.
 export const navigation = [
   { label: 'Accueil', to: '/' },
-  { label: 'À propos', to: '/a-propos' },
-  { label: 'Déroulement d’une séance', short: 'Déroulement', to: '/deroulement' },
-  { label: 'Motifs de consultation', short: 'Motifs', to: '/motifs' },
-  { label: 'Tarifs', to: '/tarifs' },
-  { label: 'Blog', to: '/blog' },
-  { label: 'Contact', to: '/contact' },
+  { label: 'À propos', to: '/a-propos.html' },
+  { label: 'Déroulement d’une séance', short: 'Déroulement', to: '/deroulement.html' },
+  { label: 'Motifs de consultation', short: 'Motifs', to: '/motifs.html' },
+  { label: 'Tarifs', to: '/tarifs.html' },
+  { label: 'Blog', to: '/blog.html' },
+  { label: 'Contact', to: '/contact.html' },
 ]
 
 const Logo = ({ className = '' }) => (
@@ -57,7 +57,7 @@ const Header = () => {
             <Phone size={14} strokeWidth={1.6} aria-hidden="true" />
             {site.phoneDisplay}
           </a>
-          <Link to="/rendez-vous" className="btn-primary hidden whitespace-nowrap px-5 py-2.5 sm:inline-flex">
+          <Link to="/rendez-vous.html" className="btn-primary hidden whitespace-nowrap px-5 py-2.5 sm:inline-flex">
             Prendre rendez-vous
           </Link>
           {/* Sous 1024 px, la barre n'a pas la place du numéro en toutes lettres :
@@ -97,7 +97,7 @@ const Header = () => {
                 {item.label}
               </NavLink>
             ))}
-            <Link to="/rendez-vous" className="btn-primary mt-5 w-full">
+            <Link to="/rendez-vous.html" className="btn-primary mt-5 w-full">
               Prendre rendez-vous
             </Link>
             <a href={site.phoneHref} className="mt-3 py-2 text-center text-sm text-muted">
@@ -159,7 +159,7 @@ const Footer = () => (
             </li>
           ))}
           <li>
-            <Link to="/rendez-vous" className="transition-colors hover:text-ink">Prendre rendez-vous</Link>
+            <Link to="/rendez-vous.html" className="transition-colors hover:text-ink">Prendre rendez-vous</Link>
           </li>
         </ul>
       </div>
@@ -183,7 +183,7 @@ const Footer = () => (
     <div className="border-t border-powder/50">
       <div className="container-site flex flex-col gap-3 py-5 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
         <p>© {new Date().getFullYear()} Maya Arnould — Ostéopathe animalier</p>
-        <Link to="/mentions-legales" className="transition-colors hover:text-ink">Mentions légales</Link>
+        <Link to="/mentions-legales.html" className="transition-colors hover:text-ink">Mentions légales</Link>
       </div>
     </div>
   </footer>

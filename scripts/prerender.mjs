@@ -23,18 +23,21 @@ const DIST = join(__dirname, '..', 'dist')
 const PRERENDERED = join(__dirname, '..', 'prerendered')
 const PORT = 5188
 
+// Les URL se terminent en .html : l'hébergeur sert `try_files $uri /index.html`
+// et ne résout pas les index de répertoire, seul un chemin correspondant
+// exactement à un fichier lui parvient.
 const ROUTES = [
   '/',
-  '/a-propos',
-  '/deroulement',
-  '/motifs',
-  '/tarifs',
-  '/blog',
-  '/blog/osteopathie-suivi-du-sportif',
-  '/blog/le-craquement-est-il-signe-d-un-bon-traitement',
-  '/rendez-vous',
-  '/contact',
-  '/mentions-legales',
+  '/a-propos.html',
+  '/deroulement.html',
+  '/motifs.html',
+  '/tarifs.html',
+  '/blog.html',
+  '/blog/osteopathie-suivi-du-sportif.html',
+  '/blog/le-craquement-est-il-signe-d-un-bon-traitement.html',
+  '/rendez-vous.html',
+  '/contact.html',
+  '/mentions-legales.html',
 ]
 
 // Si le site est multilingue via localStorage (ex. clé 'xxx-language'),
@@ -91,9 +94,9 @@ for (const route of ROUTES) {
     await new Promise((r) => setTimeout(r, 2500))
     const html = '<!DOCTYPE html>\n' + (await page.evaluate(() => document.documentElement.outerHTML))
     for (const base of [DIST, PRERENDERED]) {
-      const outDir = route === '/' ? base : join(base, route)
-      await mkdir(outDir, { recursive: true })
-      await writeFile(join(outDir, 'index.html'), html)
+      const out = join(base, route === '/' ? 'index.html' : route)
+      await mkdir(dirname(out), { recursive: true })
+      await writeFile(out, html)
     }
     const words = html.replace(/<script[\s\S]*?<\/script>/gi, ' ').replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length
     console.log(`  prerendu ${route.padEnd(18)} -> ${words} mots`)
