@@ -27,10 +27,15 @@ export default {
       borderRadius: {
         panel: '28px',
         card: '18px',
-        // Arche : le haut s'arrondit complètement, le bas reste net.
-        // Réservée aux visuels verticaux ou carrés — sur une image large,
-        // le dôme s'écrase et l'effet tombe à plat.
-        arch: '999px 999px 20px 20px',
+        // Niche : les coins hauts s'arrondissent largement, les coins bas
+        // restent presque nets. Réservée aux visuels verticaux ou carrés —
+        // sur une image large, la courbe s'écrase et l'effet tombe à plat.
+        //
+        // Les rayons hauts sont en pourcentage, pas en pixels : une valeur
+        // fixe donnerait deux formes différentes selon la taille de l'image —
+        // à peine visible sur la photo d'accroche, très marquée sur une
+        // vignette. Le pourcentage garde la même courbe partout.
+        niche: '40% 40% 20px 20px / 32% 32% 20px 20px',
       },
       maxWidth: {
         site: '1180px',

@@ -46,7 +46,7 @@ const Hero = () => (
           alt="Maya Arnould, ostéopathe animalier, au bord du lac"
           width="1050"
           height="1400"
-          className="aspect-[4/5] w-full rounded-arch object-cover shadow-soft"
+          className="aspect-[4/5] w-full rounded-niche object-cover shadow-soft"
           fetchPriority="high"
         />
       </div>
@@ -62,13 +62,13 @@ const Osteopathie = () => (
           src="/images/consultation-bovin.webp"
           alt="Maya en consultation, les mains sur la tête d’une vache"
           width="900" height="1150" loading="lazy"
-          className="aspect-[3/4] w-full rounded-arch object-cover"
+          className="aspect-[3/4] w-full rounded-niche object-cover"
         />
         <img
           src="/images/patte-chien.webp"
           alt="Patte d’un chien détendu au soleil"
           width="900" height="1150" loading="lazy"
-          className="mt-10 aspect-[3/4] w-full rounded-arch object-cover"
+          className="mt-10 aspect-[3/4] w-full rounded-niche object-cover"
         />
       </div>
       <div className="self-center">
@@ -98,7 +98,7 @@ const QuiSuisJe = () => (
         src="/images/maya-chien-malamute.webp"
         alt="Maya assise dans l’herbe à côté d’un grand chien"
         width="1400" height="1300" loading="lazy"
-        className="aspect-square w-full rounded-arch object-cover"
+        className="aspect-square w-full rounded-niche object-cover"
       />
     </div>
   </Section>
@@ -121,10 +121,10 @@ const PourQuelAnimal = () => (
               src={a.image}
               alt={a.alt}
               width="500" height="620" loading="lazy"
-              className="aspect-[4/5] w-full rounded-arch object-cover"
+              className="aspect-[4/5] w-full rounded-niche object-cover"
             />
           ) : (
-            <div className="flex aspect-[4/5] w-full flex-col items-center justify-center gap-3 rounded-arch bg-blush px-4">
+            <div className="flex aspect-[4/5] w-full flex-col items-center justify-center gap-3 rounded-niche bg-blush px-4">
               <Rabbit size={44} strokeWidth={1} className="text-clay" aria-hidden="true" />
               <span className="text-xs leading-snug text-muted">{a.note}</span>
             </div>
