@@ -53,19 +53,19 @@ const Header = () => {
         </nav>
 
         <div className="flex items-center gap-3">
-          <a href={site.phoneHref} className="hidden items-center gap-2 whitespace-nowrap text-[13px] text-muted transition-colors hover:text-ink 2xl:flex">
+          <a href={site.phoneHref} className="hidden items-center gap-2 whitespace-nowrap text-[13px] text-muted transition-colors hover:text-ink lg:flex">
             <Phone size={14} strokeWidth={1.6} aria-hidden="true" />
             {site.phoneDisplay}
           </a>
           <Link to="/rendez-vous" className="btn-primary hidden whitespace-nowrap px-5 py-2.5 sm:inline-flex">
             Prendre rendez-vous
           </Link>
-          {/* Sur mobile, la barre n'a pas la place du bouton : on garde l'appel
-              direct, qui est l'action la plus utilisée depuis un téléphone. */}
+          {/* Sous 1024 px, la barre n'a pas la place du numéro en toutes lettres :
+              on garde l'appel direct, l'action la plus utilisée depuis un téléphone. */}
           <a
             href={site.phoneHref}
             aria-label={`Appeler le ${site.phoneDisplay}`}
-            className="flex h-10 w-10 items-center justify-center rounded-full bg-blush text-brick transition-colors hover:bg-powder sm:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-full bg-blush text-brick transition-colors hover:bg-powder lg:hidden"
           >
             <Phone size={17} strokeWidth={1.6} aria-hidden="true" />
           </a>
