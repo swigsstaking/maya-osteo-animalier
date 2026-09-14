@@ -27,6 +27,10 @@ export default {
       borderRadius: {
         panel: '28px',
         card: '18px',
+        // Arche : le haut s'arrondit complètement, le bas reste net.
+        // Réservée aux visuels verticaux ou carrés — sur une image large,
+        // le dôme s'écrase et l'effet tombe à plat.
+        arch: '999px 999px 20px 20px',
       },
       maxWidth: {
         site: '1180px',

@@ -41,13 +41,13 @@ const APropos = () => (
             src="/images/maya-portrait-lac.webp"
             alt="Maya Arnould en polo de travail au bord du lac"
             width="1050" height="1400" loading="lazy"
-            className="aspect-[4/5] w-full rounded-panel object-cover"
+            className="aspect-[4/5] w-full rounded-arch object-cover"
           />
           <img
             src="/images/consultation-bovin.webp"
             alt="Maya en consultation sur une vache dans une étable"
             width="900" height="1150" loading="lazy"
-            className="aspect-[4/5] w-full rounded-panel object-cover"
+            className="aspect-[4/5] w-full rounded-arch object-cover"
           />
         </div>
       </div>

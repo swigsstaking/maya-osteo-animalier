@@ -97,6 +97,16 @@ les pages, sauf les titres de section.
 | Palette « Pink Flamingo » | `#FCE3D8` · `#F8DBD9` · `#F1C8BD` · `#DB9B8A` · `#C77D77` |
 | Couleur de marque | `#AE4721` brique — celle du logo, utilisée pour les CTA |
 | Texte | `#27211E` |
+| Découpe des photos | arche (`rounded-arch`) |
+
+**L'arche est la signature visuelle du site.** `rounded-arch`
+(`999px 999px 20px 20px`) s'applique à tous les visuels **verticaux ou carrés** :
+accroche, portraits, bande des espèces, images de section. Les visuels **larges**
+(vignettes du blog en 8/5, en-tête d'article en 16/9) gardent `rounded-card` ou
+`rounded-panel` — sur une image large, le dôme s'écrase et l'effet tombe à plat.
+
+Les cartes de texte (motifs, avis, contact) conservent leurs coins arrondis
+classiques : la distinction entre photo et surface d'interface est voulue.
 
 Les tokens Tailwind sont nommés métier (`bg-cream`, `text-brick`, `border-powder`),
 pas `primary-600`. Voir `tailwind.config.js`.
