@@ -10,12 +10,15 @@
   "pages": {
     "home": {
       "title": "Maya Arnould — Ostéopathe animalier | Neuchâtel, Berne, Fribourg, Vaud",
-      "description": "Ostéopathie animale douce et globale pour chevaux, chiens, chats, bovins et NAC. Consultations à domicile dans les cantons de Neuchâtel, Berne, Fribourg et Vaud.",
+      "description": "Ostéopathie animale douce et globale pour chevaux, chiens, chats, bovins et NAC. Consultations à domicile dans le canton de Neuchâtel et ses environs, d'Yverdon-les-Bains à Bienne et Fribourg.",
       "keywords": [
         "ostéopathe animalier",
         "ostéopathie animale",
         "Neuchâtel",
-        "Suisse romande",
+        "Bienne",
+        "Yverdon-les-Bains",
+        "Fribourg",
+        "La Chaux-de-Fonds",
         "chien",
         "chat",
         "cheval",
@@ -26,7 +29,7 @@
     },
     "apropos": {
       "title": "À propos de moi — Maya Arnould, ostéopathe animalier",
-      "description": "Diplômée de l'ESAO en juillet 2023 après cinq années d'études. Mon parcours, mon approche de l'ostéopathie animale et mon mémoire sur les chiens de troupeaux.",
+      "description": "Maya Arnould, ostéopathe pour les animaux diplômée de l'ESAO après cinq années d'études. Cavalière depuis toujours, j'interviens à domicile dans le canton de Neuchâtel et ses environs.",
       "keywords": [
         "Maya Arnould",
         "ESAO",
@@ -48,19 +51,20 @@
     },
     "motifs": {
       "title": "Motifs de consultation — Quand consulter un ostéopathe animalier ?",
-      "description": "Bilan préventif, troubles locomoteurs, troubles fonctionnels, suivi sportif, suivi de croissance, rééducation post-opératoire : les raisons de consulter.",
+      "description": "Boiterie, raideur au réveil, difficulté à monter les escaliers, baisse de performance, récupération après une opération : les situations dans lesquelles l'ostéopathie animale peut aider.",
       "keywords": [
         "motifs de consultation",
         "boiterie",
-        "arthrose",
-        "suivi sportif",
-        "rééducation"
+        "raideur",
+        "difficulté à se déplacer",
+        "baisse de performance",
+        "animal vieillissant"
       ],
       "path": "/motifs.html"
     },
     "tarifs": {
       "title": "Tarifs et zones de déplacement — Maya Arnould",
-      "description": "Chevaux 140 CHF, bovins 120 CHF, chiens et chats 110 CHF, NAC 80 CHF. Consultations à domicile dans les cantons de Neuchâtel, Berne, Fribourg et Vaud.",
+      "description": "Chevaux 140 CHF, bovins 120 CHF, chiens et chats 110 CHF, NAC 80 CHF. Secteur d'intervention d'Yverdon-les-Bains à Bienne et Fribourg, à domicile.",
       "keywords": [
         "tarifs ostéopathe animalier",
         "prix consultation",
@@ -81,7 +85,7 @@
     },
     "rendezvous": {
       "title": "Prendre rendez-vous — Maya Arnould, ostéopathe animalier",
-      "description": "Prenez rendez-vous pour une consultation d'ostéopathie animale à domicile, dans les cantons de Neuchâtel, Berne, Fribourg et Vaud.",
+      "description": "Prenez rendez-vous pour une consultation d'ostéopathie animale à domicile, dans le canton de Neuchâtel et ses environs.",
       "keywords": [
         "prendre rendez-vous",
         "réserver",

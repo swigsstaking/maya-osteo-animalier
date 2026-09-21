@@ -1,8 +1,7 @@
-import { MapPin } from 'lucide-react'
 import SEOHead from '../components/SEOHead'
-import { Section, PageHeader, CtaBand } from '../components/ui'
-import { tarifs } from '../data/content'
-import { zones } from '../data/site'
+import { Section, SectionHead, PageHeader, CtaBand } from '../components/ui'
+import Secteur from '../components/Secteur'
+import { tarifs, tarifPreferentiel, associations } from '../data/content'
 
 const Tarifs = () => (
   <>
@@ -36,36 +35,26 @@ const Tarifs = () => (
       <div className="mx-auto mt-14 max-w-3xl rounded-card border border-powder/60 bg-sand p-7">
         <h2 className="text-lg">Tarif préférentiel</h2>
         <p className="mt-3 text-[15px] leading-relaxed text-muted">
-          Un tarif préférentiel s’applique à partir de trois animaux de la même famille.
-          Indiquez-le-moi lors de la prise de rendez-vous, je vous confirmerai le montant.
+          {tarifPreferentiel} Indiquez-le-moi lors de la prise de rendez-vous, je vous
+          confirmerai le montant.
         </p>
+      </div>
+
+      <div className="mx-auto mt-4 max-w-3xl rounded-card border border-powder/60 bg-sand p-7">
+        <h2 className="text-lg">Associations et centres équestres</h2>
+        <p className="mt-3 text-[15px] leading-relaxed text-muted">{associations}</p>
       </div>
     </Section>
 
     <Section tone="sand">
-      <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-        <div>
-          <p className="eyebrow">Zone de déplacement</p>
-          <h2 className="h-section mt-4">Je viens à vous</h2>
-          <p className="mt-6 text-base leading-relaxed text-muted">
-            J’interviens dans le canton de Neuchâtel et ses environs, ainsi que dans les cantons
-            limitrophes. Si vous n’êtes pas sûr d’être dans ma zone, écrivez-moi votre localité :
-            je vous réponds rapidement, et je vous indique les éventuels frais de déplacement
-            avant de fixer le rendez-vous.
-          </p>
-        </div>
-        <ul className="grid grid-cols-2 gap-3 self-center">
-          {zones.cantons.map((c) => (
-            <li
-              key={c}
-              className="flex items-center gap-2.5 rounded-card border border-powder/60 bg-cream px-5 py-4 text-[15px]"
-            >
-              <MapPin size={15} strokeWidth={1.5} className="shrink-0 text-clay" aria-hidden="true" />
-              {c}
-            </li>
-          ))}
-        </ul>
-      </div>
+      <SectionHead
+        overline="Zone de déplacement"
+        title="Où je me déplace"
+        lede="Mon secteur s’étend d’Yverdon-les-Bains à Bienne et jusqu’à Fribourg — le canton de Neuchâtel et ses environs."
+        align="center"
+        className="max-w-2xl"
+      />
+      <Secteur className="mt-14" />
     </Section>
 
     <CtaBand secondary={{ to: '/contact.html', label: 'Me contacter' }} />

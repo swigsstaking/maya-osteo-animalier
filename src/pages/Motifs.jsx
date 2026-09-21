@@ -8,36 +8,44 @@ const Motifs = () => (
     <PageHeader
       overline="Motifs de consultation"
       title="Quand consulter un ostéopathe animalier ?"
-      lede="Les animaux, comme les humains, peuvent bénéficier des soins ostéopathiques pour une multitude de raisons, toutes visant à améliorer leur bien-être et leur qualité de vie."
+      lede={motifs.intro}
     />
 
     <Section>
-      <ul className="grid gap-x-10 gap-y-14 md:grid-cols-2">
-        {motifs.map((m, i) => (
-          <li key={m.titre}>
-            <p className="text-sm font-medium text-clay">{String(i + 1).padStart(2, '0')}</p>
-            <h2 className="mt-3 text-xl">{m.titre}</h2>
-            <div className="rule my-5" />
-            <p className="text-[15px] leading-relaxed text-muted">{m.texte}</p>
-            {m.liste && (
-              <ul className="mt-5 space-y-2">
-                {m.liste.map((item) => (
-                  <li key={item} className="flex gap-3 text-[15px] leading-relaxed text-muted">
-                    <span className="mt-[0.6em] h-1 w-1 shrink-0 rounded-full bg-clay" aria-hidden="true" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            )}
+      <h2 className="h-section">{motifs.titre}</h2>
+      <ul className="mt-10 grid gap-x-12 sm:grid-cols-2">
+        {motifs.cas.map((cas) => (
+          <li
+            key={cas}
+            className="flex gap-4 border-b border-powder/60 py-5 text-base leading-relaxed text-muted"
+          >
+            <span className="mt-[0.7em] h-1.5 w-1.5 shrink-0 rounded-full bg-clay" aria-hidden="true" />
+            {cas}
           </li>
         ))}
       </ul>
     </Section>
 
     <Section tone="sand">
-      <div className="mx-auto max-w-3xl text-center">
-        <p className="eyebrow">Bon à savoir</p>
-        <p className="mt-5 text-lg leading-relaxed text-muted">{osteopathie.note}</p>
+      <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <img
+          src="/images/chat-endormi.webp"
+          alt="Chat tigré endormi sur une couverture"
+          width="750" height="937" loading="lazy"
+          className="aspect-[4/5] w-full rounded-niche object-cover"
+        />
+        <div>
+          <p className="eyebrow">Bon à savoir</p>
+          <h2 className="h-section mt-4">Dans le doute, décrivez-moi ce que vous voyez</h2>
+          <p className="mt-6 text-base leading-relaxed text-muted">
+            Un changement d’attitude, une hésitation devant un escalier, une raideur au
+            réveil : ce sont souvent ces petits signes qui amènent à consulter. Si vous
+            hésitez, écrivez-moi — je vous dirai si une séance est indiquée.
+          </p>
+          <p className="mt-5 border-l-2 border-powder pl-5 text-sm leading-relaxed text-muted">
+            {osteopathie.note}
+          </p>
+        </div>
       </div>
     </Section>
 

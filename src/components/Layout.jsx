@@ -175,7 +175,8 @@ const Footer = () => (
           <InstagramIcon size={15} strokeWidth={1.6} aria-hidden="true" /> {site.social.instagramHandle}
         </a>
         <p className="mt-6 text-sm text-muted">
-          Zone d’intervention&nbsp;: cantons de Neuchâtel, Berne, Fribourg et Vaud.
+          Secteur&nbsp;: canton de Neuchâtel et ses environs, d’Yverdon-les-Bains à
+          Bienne et Fribourg.
         </p>
       </div>
     </div>

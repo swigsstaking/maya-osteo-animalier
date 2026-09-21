@@ -53,6 +53,19 @@ export const site = {
 
 export const zones = {
   cantons: ['Neuchâtel', 'Berne', 'Fribourg', 'Vaud'],
-  // ⚠️ À COMPLÉTER AVEC MAYA : rayon exact et frais de déplacement.
+  // Le secteur tel que Maya le décrit : « à peu près Yverdon – Bienne –
+  // Fribourg ». Ces localités servent de repères sur la carte et de liste
+  // lisible en dessous.
+  reperes: [
+    'Neuchâtel',
+    'La Chaux-de-Fonds',
+    'Bienne',
+    'Yverdon-les-Bains',
+    'Fribourg',
+    'Val-de-Travers',
+    'Le Landeron',
+    'Morat',
+  ],
+  // ⚠️ À COMPLÉTER AVEC MAYA : frais de déplacement au-delà du secteur.
   fraisDeplacement: null,
 }

@@ -1,4 +1,3 @@
-import { ExternalLink } from 'lucide-react'
 import SEOHead from '../components/SEOHead'
 import { Section, PageHeader, CtaBand } from '../components/ui'
 import { apropos, valeurs } from '../data/content'
@@ -25,28 +24,19 @@ const APropos = () => (
             <p key={p} className="mb-5 text-base leading-relaxed text-muted">{p}</p>
           ))}
 
-          <a
-            href={apropos.etudeUrl}
-            target="_blank"
-            rel="noreferrer noopener"
-            className="btn-secondary mt-4"
-          >
-            Présentation de mon étude
-            <ExternalLink size={15} strokeWidth={1.6} aria-hidden="true" />
-          </a>
         </div>
 
         <div className="space-y-4 self-start">
           <img
-            src="/images/maya-portrait-lac.webp"
-            alt="Maya Arnould en polo de travail au bord du lac"
+            src="/images/maya-diplome.webp"
+            alt="Maya Arnould le jour de sa remise de diplôme, son diplôme de l’ESAO en main"
             width="1050" height="1400" loading="lazy"
             className="aspect-[4/5] w-full rounded-niche object-cover"
           />
           <img
-            src="/images/consultation-bovin.webp"
-            alt="Maya en consultation sur une vache dans une étable"
-            width="900" height="1150" loading="lazy"
+            src="/images/maya-portrait-lac.webp"
+            alt="Maya Arnould en polo de travail au bord du lac"
+            width="760" height="950" loading="lazy"
             className="aspect-[4/5] w-full rounded-niche object-cover"
           />
         </div>

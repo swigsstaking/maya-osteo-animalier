@@ -15,21 +15,21 @@ export const animaux = [
 export const etapes = [
   {
     num: '01',
-    titre: "L'anamnèse",
+    titre: 'Les informations',
     texte:
       "C'est un dialogue entre le praticien et le propriétaire de l'animal. L'ostéopathe va pouvoir récolter le plus d'informations possible pour mieux comprendre l'animal et son mode de vie.",
   },
   {
     num: '02',
-    titre: "L'examen palpatoire",
-    texte:
-      "Lors de cette étape, le praticien palpe le corps entier de l'animal. Il cherche à recueillir un maximum d'informations : réactions de l'animal, zones de froid, zones de chaud, sensibilités…",
-  },
-  {
-    num: '03',
     titre: "L'examen dynamique",
     texte:
       "L'examen dynamique est très utile pour comprendre la locomotion de l'animal, sa posture et ses compensations.",
+  },
+  {
+    num: '03',
+    titre: "L'examen palpatoire",
+    texte:
+      "Lors de cette étape, le praticien palpe le corps entier de l'animal. Il cherche à recueillir un maximum d'informations : réactions de l'animal, zones de froid, zones de chaud, sensibilités…",
   },
   {
     num: '04',
@@ -51,52 +51,32 @@ export const etapes = [
   },
 ]
 
-export const motifs = [
-  {
-    titre: 'Bilan',
-    resume: 'Deux rendez-vous par an pour prévenir plutôt que guérir.',
-    texte:
-      "Surveillance et gestion des divers systèmes du corps pour assurer leur bon fonctionnement. Deux rendez-vous par an permettent une prévention efficace et une prise en charge précoce en cas de souci de santé.",
-  },
-  {
-    titre: 'Troubles locomoteurs',
-    resume: 'Boiterie, raideurs, difficulté à se lever, arthrose.',
-    texte:
-      "Gestion des troubles de la locomotion : boiterie, raideurs, difficulté à se lever ou à descendre les escaliers, arthrose. Par le biais de techniques manuelles douces, le praticien vise à rétablir l'équilibre musculo-squelettique, améliore la mobilité et atténue les gênes.",
-    liste: ['Boiterie, raideurs', 'Difficulté à se lever, à descendre les escaliers', 'Arthrose'],
-  },
-  {
-    titre: 'Troubles fonctionnels',
-    resume: 'Digestifs, respiratoires, neurologiques, uro-génitaux.',
-    texte:
-      "L'ostéopathe peut cibler plusieurs troubles, afin de rétablir l'équilibre physiologique et d'améliorer la santé globale de l'animal.",
-    liste: [
-      'Digestifs (vomissements, douleurs abdominales)',
-      "Respiratoires (respiration difficile ou irrégulière, gêne à l'effort)",
-      "Neurologiques (troubles de l'équilibre et de la coordination)",
-      'Uro-génitaux (troubles de la miction)',
-    ],
-  },
-  {
-    titre: 'Suivi sportif',
-    resume: 'Prévention, suivi et récupération en compétition.',
-    texte:
-      'Pour des compétitions sportives : prévention, suivi, récupération, et gestion des baisses de performance.',
-    liste: ['Prévention', 'Suivi', 'Récupération', 'Gestion des baisses de performance'],
-  },
-  {
-    titre: 'Suivi de croissance',
-    resume: 'Accompagner les déséquilibres de la croissance.',
-    texte:
-      "Pendant la croissance, les animaux subissent des changements physiques qui peuvent causer des déséquilibres (traumatismes, malformations). L'ostéopathe peut corriger ces déséquilibres, favorisant une croissance harmonieuse.",
-  },
-  {
-    titre: 'Rééducation',
-    resume: 'Après une opération, relancer la circulation.',
-    texte:
-      "Rééducation post-opératoire, favorisant la bonne circulation. L'ostéopathe traite les adhérences cicatricielles et relance la circulation sanguine.",
-  },
-]
+// Maya a remplacé ses six catégories par une liste de situations concrètes :
+// c'est ce qu'un propriétaire inquiet reconnaît, plutôt qu'une classification.
+export const motifs = {
+  intro:
+    "Les animaux, comme les humains, peuvent bénéficier des soins ostéopathiques pour une multitude de raisons, toutes visant à améliorer leur bien-être et leur qualité de vie.",
+  titre: 'Dans quels cas je peux vous aider',
+  cas: [
+    'En prévention',
+    'Boiterie',
+    'Douleurs et inconfort digestifs',
+    'Raideur au réveil',
+    'Difficultés à se déplacer',
+    'Difficultés à monter les escaliers, à sauter dans la voiture ou sur le canapé, à se coucher',
+    "Baisse de performance ou d'endurance",
+    "Récupération après l'effort ou une compétition",
+    'Après une blessure ou une opération',
+    'Changements de comportement inexpliqués',
+    'Animal vieillissant qui perd en mobilité',
+  ],
+}
+
+export const tarifPreferentiel =
+  'À partir de trois animaux de la même famille, au même lieu.'
+
+export const associations =
+  'Associations et centres équestres : contactez-moi, nous verrons ensemble.'
 
 export const tarifs = [
   { animal: 'Chevaux', prix: 140, lieu: 'Sur place, dans les installations hébergeant l’animal' },
@@ -126,24 +106,19 @@ export const avis = [
   },
 ]
 
-export const citation = {
-  texte:
-    "Le devoir du praticien n'est pas de guérir le malade mais d'ajuster une partie ou l'ensemble du système afin que les fleuves de la vie puissent s'écouler et irriguer les champs desséchés.",
-  auteur: 'A. T. Still',
-}
-
 export const apropos = {
   intro:
-    "Bonjour ! Moi c'est Maya. Je suis diplômée d'ostéopathie animale de l'ESAO depuis 2023.",
+    "Je suis Maya, ostéopathe pour les animaux, diplômée de l'ESAO après cinq années d'études.",
   paragraphes: [
-    "Ce qui me plaît dans ce métier, c'est d'aider à créer un dialogue entre l'animal et son propriétaire. J'observe ce que son corps me montre, et j'aide le propriétaire à mieux comprendre certains signaux.",
+    "Ce qui me plaît dans mon métier, c'est d'aider à créer un dialogue entre l'animal et son propriétaire. J'observe ce que son corps me montre, et j'aide le propriétaire à mieux comprendre certains signaux.",
     "Avec une approche ostéopathique douce et globale — musculo-squelettique, viscérale et crânienne — je cherche à redonner à votre compagnon du confort, et à renforcer cette relation qui vous unit.",
   ],
   parcours: [
-    "À l'issue de mes cinq années d'études supérieures à l'école d'ostéopathie animale de Lisieux (ESAO), j'ai réalisé une étude intitulée « L'analyse ostéopathique des dysfonctions liées à la biomécanique spécifique chez les chiens de troupeaux ». Elle a permis de mettre en lumière les dysfonctions spécifiques que l'on retrouve chez l'animal pratiquant la gestion de troupeaux, à des degrés différents.",
-    "Suite à cela, j'ai été diplômée en juillet 2023.",
+    "Les animaux font partie de mon quotidien depuis toujours : cavalière depuis mes plus jeunes années, j'ai évolué en compétition. Je partage également ma vie avec mes deux chats.",
+    "Mon parcours et ma formation en ostéopathie animale m'ont appris à observer chaque animal dans son ensemble : un mouvement, une attitude, une petite différence… autant d'indices qui permettent de le comprendre.",
+    "J'interviens à domicile dans le canton de Neuchâtel et ses environs, auprès des chevaux, chiens, chats, bovins et NAC, grâce à une approche douce et adaptée à chaque animal.",
+    'Au plaisir de vous rencontrer !',
   ],
-  etudeUrl: 'https://prezi.com/p/radhdxz6wrgg/analyse-osteopathique/',
 }
 
 export const osteopathie = {

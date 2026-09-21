@@ -40,8 +40,8 @@ const Deroulement = () => (
         <img
           src="/images/patte-chien.webp"
           alt="Patte d’un chien détendu au soleil"
-          width="1200" height="1200" loading="lazy"
-          className="aspect-square w-full rounded-niche object-cover"
+          width="760" height="950" loading="lazy"
+          className="aspect-[4/5] w-full rounded-niche object-cover"
         />
         <div>
           <p className="eyebrow">Après la séance</p>

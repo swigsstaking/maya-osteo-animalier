@@ -1,0 +1,314 @@
+<title>Format des photos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* Page volontairement mono-thème : elle montre à quoi ressemble un site
+     clair. La poser sur un fond sombre en donnerait une idée fausse.
+     Tous les fonds et toutes les couleurs sont donc peints explicitement.
+     Les jetons sont ceux du site de Maya, pas un choix de cette page. */
+  :root {
+    color-scheme: light;
+    --cream:  #FDF7F3;
+    --sand:   #F7EFE8;
+    --blush:  #FCE3D8;
+    --powder: #F1C8BD;
+    --clay:   #DB9B8A;
+    --rose:   #C77D77;
+    --brick:  #AE4721;
+    --ink:    #27211E;
+    --muted:  #6B5F58;
+
+    --r: 40% 40% 20px 20px / 32% 32% 20px 20px;
+    --ratio: 4 / 5;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: Jost, system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-weight: 300;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 { font-weight: 300; margin: 0; text-wrap: balance; }
+  p { margin: 0; text-wrap: pretty; }
+  img { display: block; max-width: 100%; }
+
+  .page { max-width: 1080px; margin: 0 auto; padding-inline: 20px; padding-block: 0 72px; }
+
+  .eyebrow {
+    font-size: 11px; font-weight: 500; letter-spacing: .24em;
+    text-transform: uppercase; color: var(--clay);
+  }
+
+  /* ---------- en-tête ---------- */
+  .intro { padding-block: 56px 40px; max-width: 62ch; }
+  .intro h1 { font-size: clamp(28px, 5vw, 44px); line-height: 1.1; margin-top: 14px; }
+  .intro p { color: var(--muted); font-size: 17px; margin-top: 18px; }
+
+  /* ---------- le sélecteur ---------- */
+  .chooser {
+    position: sticky; top: 0; z-index: 10;
+    background: var(--cream);
+    border-block: 1px solid var(--powder);
+    padding-block: 18px;
+    margin-bottom: 8px;
+  }
+  .chooser-inner { max-width: 1080px; margin: 0 auto; padding-inline: 20px; }
+  .options {
+    list-style: none; margin: 14px 0 0; padding: 0;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+  }
+  @media (max-width: 640px) { .options { grid-template-columns: repeat(2, 1fr); } }
+
+  .opt {
+    width: 100%; display: grid; gap: 10px; justify-items: center;
+    background: none; border: 0; padding: 8px 4px 10px;
+    font: inherit; color: var(--muted); cursor: pointer;
+    border-radius: 14px;
+    transition: color .2s ease, background-color .2s ease;
+  }
+  .opt:hover { background: var(--sand); color: var(--ink); }
+  .opt[aria-pressed="true"] { color: var(--brick); background: var(--blush); }
+  .opt:focus-visible { outline: 2px solid var(--brick); outline-offset: 2px; }
+
+  .opt .thumb {
+    width: 100%; max-width: 96px; aspect-ratio: var(--t-ratio);
+    object-fit: cover; border-radius: var(--t-r);
+  }
+  .opt .nom { font-size: 13px; letter-spacing: .01em; }
+
+  /* chaque vignette porte sa propre forme, indépendamment de la sélection */
+  .opt[data-f="niche"]     { --t-r: 40% 40% 12px 12px / 32% 32% 12px 12px; --t-ratio: 4 / 5; }
+  .opt[data-f="doux"]      { --t-r: 22px;                                  --t-ratio: 4 / 5; }
+  .opt[data-f="signature"] { --t-r: 24px 24px 24px 0;                      --t-ratio: 4 / 5; }
+  .opt[data-f="haut"]      { --t-r: 10px;                                  --t-ratio: 3 / 4; }
+
+  /* ---------- l'aperçu ---------- */
+  .apercu { padding-top: 44px; }
+  .legende { color: var(--muted); font-size: 15px; margin-top: 10px; max-width: 62ch; }
+
+  .bloc { padding-block: 44px; border-top: 1px solid var(--powder); }
+  .bloc:first-of-type { border-top: 0; }
+  .bloc > .eyebrow + h2 { margin-top: 8px; font-size: clamp(22px, 3vw, 30px); }
+
+  .photo { width: 100%; aspect-ratio: var(--ratio); object-fit: cover; border-radius: var(--r); }
+
+  /* accroche */
+  .hero { display: grid; grid-template-columns: 1fr .85fr; gap: 44px; align-items: center; }
+  .hero h2 { font-size: clamp(26px, 4vw, 38px); line-height: 1.12; margin-top: 14px; }
+  .hero p { color: var(--muted); margin-top: 16px; }
+  .boutons { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    border-radius: 999px; padding: 11px 24px; font-size: 14px; font-weight: 400;
+    text-decoration: none; border: 1px solid transparent;
+  }
+  .btn-plein { background: var(--brick); color: var(--cream); }
+  .btn-vide { border-color: var(--powder); color: var(--ink); }
+  .btn-doux { background: var(--blush); color: var(--ink); }
+
+  /* bande des espèces */
+  .especes { list-style: none; margin: 30px 0 0; padding: 0; display: grid; gap: 18px; grid-template-columns: repeat(4, 1fr); }
+  .especes .nom { margin-top: 12px; text-align: center; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); }
+
+  /* paire d'images */
+  .paire { display: grid; grid-template-columns: .9fr 1fr; gap: 44px; align-items: center; }
+  .paire .duo { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
+  .paire .duo :nth-child(2) { margin-top: 34px; }
+  .paire p { color: var(--muted); margin-top: 16px; }
+
+  @media (max-width: 760px) {
+    .hero, .paire { grid-template-columns: 1fr; gap: 28px; }
+    .especes { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* ---------- conclusion ---------- */
+  .choix {
+    margin-top: 48px; padding: 28px 30px;
+    background: var(--sand); border: 1px solid var(--powder); border-radius: 20px;
+  }
+  .choix h2 { font-size: 22px; margin-top: 8px; }
+  .choix p { color: var(--muted); margin-top: 12px; max-width: 62ch; }
+  .choix strong { color: var(--brick); font-weight: 500; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+  }
+</style>
+
+<header class="page intro">
+  <p class="eyebrow">Maya Arnould · Ostéopathe animalier</p>
+  <h1>Quelle forme pour vos photos&nbsp;?</h1>
+  <p>
+    Quatre découpes possibles, sur vos vraies photos et dans vos couleurs. Choisissez
+    en haut&nbsp;: toute la page se met à jour pour vous montrer le résultat sur votre
+    page d’accueil. Rien n’est encore décidé, prenez le temps de comparer.
+  </p>
+</header>
+
+<div class="chooser">
+  <div class="chooser-inner">
+    <p class="eyebrow">Choisissez une forme</p>
+    <ul class="options" role="group" aria-label="Forme des photos">
+      <li>
+        <button class="opt" type="button" data-f="niche" aria-pressed="true">
+          <img class="thumb" src="images/animal-chat.webp" alt="">
+          <span class="nom">Niche</span>
+        </button>
+      </li>
+      <li>
+        <button class="opt" type="button" data-f="doux" aria-pressed="false">
+          <img class="thumb" src="images/animal-chat.webp" alt="">
+          <span class="nom">Coins doux</span>
+        </button>
+      </li>
+      <li>
+        <button class="opt" type="button" data-f="signature" aria-pressed="false">
+          <img class="thumb" src="images/animal-chat.webp" alt="">
+          <span class="nom">Coin signature</span>
+        </button>
+      </li>
+      <li>
+        <button class="opt" type="button" data-f="haut" aria-pressed="false">
+          <img class="thumb" src="images/animal-chat.webp" alt="">
+          <span class="nom">Format haut</span>
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<main class="page apercu">
+  <p class="eyebrow">Aperçu</p>
+  <p class="legende" id="legende">La niche&nbsp;: les coins du haut s’arrondissent largement, ceux du bas restent nets.</p>
+
+  <section class="bloc">
+    <div class="hero">
+      <div>
+        <p class="eyebrow">Ostéopathie animale · Suisse romande</p>
+        <h2>Maya Arnould,<br>ostéopathe animalier</h2>
+        <p>
+          Une approche douce et globale pour chevaux, chiens, chats, bovins et NAC.
+          Je me déplace chez vous, dans le canton de Neuchâtel et ses environs.
+        </p>
+        <div class="boutons">
+          <span class="btn btn-plein">Prendre rendez-vous</span>
+          <span class="btn btn-vide">Les tarifs</span>
+          <span class="btn btn-doux">076 530 79 62</span>
+        </div>
+      </div>
+      <img class="photo" src="images/maya-portrait-lac.webp" alt="Maya Arnould au bord du lac, en polo de travail">
+    </div>
+  </section>
+
+  <section class="bloc">
+    <p class="eyebrow">Pour quel animal</p>
+    <h2>Je soigne toutes les espèces</h2>
+    <ul class="especes">
+      <li>
+        <img class="photo" src="images/animal-cheval.webp" alt="Tête d’un cheval noir en licol">
+        <p class="nom">Chevaux</p>
+      </li>
+      <li>
+        <img class="photo" src="images/animal-chien.webp" alt="Maya en consultation avec un caniche">
+        <p class="nom">Chiens</p>
+      </li>
+      <li>
+        <img class="photo" src="images/animal-chat.webp" alt="Chat tigré détendu dans les bras">
+        <p class="nom">Chats</p>
+      </li>
+      <li>
+        <img class="photo" src="images/animal-bovins.webp" alt="Maya au milieu d’un troupeau de vaches">
+        <p class="nom">Bovins</p>
+      </li>
+    </ul>
+  </section>
+
+  <section class="bloc">
+    <div class="paire">
+      <div class="duo">
+        <img class="photo" src="images/consultation-bovin.webp" alt="Maya, les mains sur la tête d’une vache">
+        <img class="photo" src="images/patte-chien.webp" alt="Patte d’un chien au soleil">
+      </div>
+      <div>
+        <p class="eyebrow">L’ostéopathie animale</p>
+        <h2>Qu’est-ce que l’ostéopathie animale&nbsp;?</h2>
+        <p>
+          Une thérapie manuelle qui considère l’animal dans son ensemble. Plutôt que de
+          traiter un symptôme isolé, elle cherche l’origine de la gêne.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="choix">
+    <p class="eyebrow">Votre choix</p>
+    <h2 id="resume">Vous avez retenu&nbsp;: <strong>la niche</strong>.</h2>
+    <p>
+      Votre choix est retenu sur cet appareil&nbsp;: vous pouvez fermer la page et y
+      revenir. Dites-le simplement à Corentin, ou envoyez-lui une capture de cet
+      encadré — la modification prend une minute et s’applique à tout le site.
+    </p>
+  </section>
+</main>
+
+<script>
+  const FORMATS = {
+    niche: {
+      nom: 'la niche',
+      r: '40% 40% 20px 20px / 32% 32% 20px 20px',
+      ratio: '4 / 5',
+      legende: 'La niche : les coins du haut s’arrondissent largement, ceux du bas restent nets.',
+    },
+    doux: {
+      nom: 'les coins doux',
+      r: '44px',
+      ratio: '4 / 5',
+      legende: 'Les coins doux : un rectangle simplement très arrondi, sur les quatre angles.',
+    },
+    signature: {
+      nom: 'le coin signature',
+      r: '48px 48px 48px 0',
+      ratio: '4 / 5',
+      legende: 'Le coin signature : trois angles arrondis, celui du bas à gauche reste net. Discret, mais on le remarque.',
+    },
+    haut: {
+      nom: 'le format haut',
+      r: '20px',
+      ratio: '3 / 4',
+      legende: 'Le format haut : des photos plus élancées et des angles sobres. Le plus classique des quatre.',
+    },
+  };
+
+  const CLE = 'maya-format-photos';
+  const racine = document.documentElement;
+  const boutons = [...document.querySelectorAll('.opt')];
+  const legende = document.getElementById('legende');
+  const resume = document.getElementById('resume');
+
+  function appliquer(cle, memoriser) {
+    const f = FORMATS[cle] || FORMATS.niche;
+    racine.style.setProperty('--r', f.r);
+    racine.style.setProperty('--ratio', f.ratio);
+    legende.textContent = f.legende;
+    resume.innerHTML = 'Vous avez retenu&nbsp;: <strong>' + f.nom + '</strong>.';
+    boutons.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.f === cle)));
+    if (memoriser) {
+      // Le stockage peut être bloqué (navigation privée, cookies refusés) :
+      // la page doit continuer de fonctionner sans mémoire.
+      try { localStorage.setItem(CLE, cle); } catch (e) {}
+    }
+  }
+
+  boutons.forEach((b) => b.addEventListener('click', () => appliquer(b.dataset.f, true)));
+
+  let initial = 'niche';
+  try { initial = localStorage.getItem(CLE) || 'niche'; } catch (e) {}
+  appliquer(initial, false);
+</script>

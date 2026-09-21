@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom'
-import { Star, MapPin, Rabbit, Phone } from 'lucide-react'
+import { Star, Rabbit, Phone } from 'lucide-react'
 import SEOHead from '../components/SEOHead'
 import { Section, SectionHead, ArrowLink, CtaBand } from '../components/ui'
+import Secteur from '../components/Secteur'
 import { site } from '../data/site'
-import { animaux, etapes, motifs, avis, citation, apropos, osteopathie, valeurs } from '../data/content'
+import { animaux, etapes, motifs, avis, apropos, osteopathie, valeurs } from '../data/content'
 import { localBusinessJsonLd } from '../data/jsonld'
 
 const Hero = () => (
@@ -42,8 +43,8 @@ const Hero = () => (
 
       <div className="relative">
         <img
-          src="/images/maya-portrait-lac.webp"
-          alt="Maya Arnould, ostéopathe animalier, au bord du lac"
+          src="/images/maya-portrait.webp"
+          alt="Maya Arnould tenant un chat roux dans les bras"
           width="1050"
           height="1400"
           className="aspect-[4/5] w-full rounded-niche object-cover shadow-soft"
@@ -59,16 +60,16 @@ const Osteopathie = () => (
     <div className="grid gap-12 lg:grid-cols-[0.9fr_1fr] lg:gap-16">
       <div className="grid grid-cols-2 gap-4 self-start">
         <img
-          src="/images/consultation-bovin.webp"
-          alt="Maya en consultation, les mains sur la tête d’une vache"
-          width="900" height="1150" loading="lazy"
-          className="aspect-[3/4] w-full rounded-niche object-cover"
+          src="/images/consultation-chien.webp"
+          alt="Maya en consultation sur un chien blanc, sous une tente"
+          width="760" height="950" loading="lazy"
+          className="aspect-[4/5] w-full rounded-niche object-cover"
         />
         <img
           src="/images/patte-chien.webp"
           alt="Patte d’un chien détendu au soleil"
-          width="900" height="1150" loading="lazy"
-          className="mt-10 aspect-[3/4] w-full rounded-niche object-cover"
+          width="760" height="950" loading="lazy"
+          className="mt-10 aspect-[4/5] w-full rounded-niche object-cover"
         />
       </div>
       <div className="self-center">
@@ -120,7 +121,7 @@ const PourQuelAnimal = () => (
             <img
               src={a.image}
               alt={a.alt}
-              width="500" height="620" loading="lazy"
+              width="760" height="950" loading="lazy"
               className="aspect-[4/5] w-full rounded-niche object-cover"
             />
           ) : (
@@ -164,13 +165,13 @@ const Motifs = () => (
     <SectionHead
       overline="Motifs de consultation"
       title="Quand faire appel à un ostéopathe ?"
-      lede="Les animaux, comme les humains, peuvent bénéficier des soins ostéopathiques pour une multitude de raisons, toutes visant à améliorer leur bien-être et leur qualité de vie."
+      lede={motifs.intro}
     />
-    <ul className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      {motifs.map((m) => (
-        <li key={m.titre} className="card">
-          <h3 className="text-lg">{m.titre}</h3>
-          <p className="mt-3 text-[15px] leading-relaxed text-muted">{m.resume}</p>
+    <ul className="mt-12 grid gap-x-10 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
+      {motifs.cas.map((cas) => (
+        <li key={cas} className="flex gap-3 border-b border-powder/50 py-3 text-[15px] leading-relaxed text-muted">
+          <span className="mt-[0.65em] h-1 w-1 shrink-0 rounded-full bg-clay" aria-hidden="true" />
+          {cas}
         </li>
       ))}
     </ul>
@@ -226,35 +227,14 @@ const Avis = () => (
 
 const Zone = () => (
   <Section tone="sand">
-    <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-      <div>
-        <SectionHead
-          overline="Zone de déplacement"
-          title="Je viens à vous"
-          lede="Les consultations se déroulent à domicile pour les chiens, les chats et les NAC, et dans les installations hébergeant les chevaux et les bovins."
-        />
-        <ArrowLink to="/tarifs.html" className="mt-8">Tarifs et déplacements</ArrowLink>
-      </div>
-      <ul className="grid grid-cols-2 gap-3 self-center">
-        {['Neuchâtel', 'Berne', 'Fribourg', 'Vaud'].map((c) => (
-          <li key={c} className="flex items-center gap-2.5 rounded-card border border-powder/60 bg-cream px-5 py-4 text-[15px]">
-            <MapPin size={15} strokeWidth={1.5} className="shrink-0 text-clay" aria-hidden="true" />
-            {c}
-          </li>
-        ))}
-      </ul>
-    </div>
-  </Section>
-)
-
-const Citation = () => (
-  <Section tone="blush" className="text-center">
-    <figure className="mx-auto max-w-3xl">
-      <blockquote className="text-xl font-light leading-relaxed sm:text-2xl md:text-[1.75rem] md:leading-[1.45]">
-        « {citation.texte} »
-      </blockquote>
-      <figcaption className="eyebrow mt-8 text-rose">{citation.auteur}</figcaption>
-    </figure>
+    <SectionHead
+      overline="Zone de déplacement"
+      title="Je viens à vous"
+      lede="D’Yverdon-les-Bains à Bienne et jusqu’à Fribourg. Les consultations se déroulent à domicile pour les chiens, les chats et les NAC, et dans les installations hébergeant les chevaux et les bovins."
+      align="center"
+      className="max-w-2xl"
+    />
+    <Secteur className="mt-14" />
   </Section>
 )
 
@@ -270,7 +250,6 @@ const Home = () => (
     <Valeurs />
     <Avis />
     <Zone />
-    <Citation />
     <CtaBand />
   </>
 )

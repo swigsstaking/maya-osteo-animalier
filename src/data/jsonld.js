@@ -30,10 +30,16 @@ export const localBusinessJsonLd = {
     longitude: site.address.lng,
   },
   openingHours: site.hoursSchema,
-  areaServed: ['Neuchâtel', 'Berne', 'Fribourg', 'Vaud'].map((c) => ({
-    '@type': 'AdministrativeArea',
-    name: `Canton de ${c}`,
-  })),
+  areaServed: [
+    ...['Neuchâtel', 'Berne', 'Fribourg', 'Vaud'].map((c) => ({
+      '@type': 'AdministrativeArea',
+      name: `Canton de ${c}`,
+    })),
+    ...['Neuchâtel', 'La Chaux-de-Fonds', 'Bienne', 'Yverdon-les-Bains', 'Fribourg', 'Morat'].map((v) => ({
+      '@type': 'City',
+      name: v,
+    })),
+  ],
   sameAs: [site.social.instagram],
   founder: {
     '@type': 'Person',
