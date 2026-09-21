@@ -73,7 +73,20 @@ const server = createServer(async (req, res) => {
   }
 })
 
-await new Promise((r) => server.listen(PORT, r))
+// Un prérendu interrompu laisse son serveur derrière lui : on cherche un port
+// libre plutôt que d'échouer sur EADDRINUSE des heures plus tard.
+let port = PORT
+await new Promise((resolve, reject) => {
+  const essayer = () => {
+    server.once('error', (e) => {
+      if (e.code === 'EADDRINUSE' && port < PORT + 20) { port += 1; essayer() }
+      else reject(e)
+    })
+    server.listen(port, () => resolve())
+  }
+  essayer()
+})
+if (port !== PORT) console.log(`  (port ${PORT} occupé, prérendu sur ${port})`)
 
 let browser
 try {
@@ -90,7 +103,7 @@ for (const route of ROUTES) {
     await page.evaluateOnNewDocument((fl) => { try { localStorage.setItem(fl.key, fl.value) } catch (e) {} }, FORCE_LANG)
   }
   try {
-    await page.goto(`http://localhost:${PORT}${route}`, { waitUntil: 'networkidle0', timeout: 60000 })
+    await page.goto(`http://localhost:${port}${route}`, { waitUntil: 'networkidle0', timeout: 60000 })
     await new Promise((r) => setTimeout(r, 2500))
     const html = '<!DOCTYPE html>\n' + (await page.evaluate(() => document.documentElement.outerHTML))
     for (const base of [DIST, PRERENDERED]) {

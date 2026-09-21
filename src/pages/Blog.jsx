@@ -13,23 +13,31 @@ const Blog = () => (
     />
 
     <Section>
-      <ul className="grid gap-10 md:grid-cols-2 lg:gap-12">
-        {posts.map((post) => (
-          <li key={post.slug}>
-            <Link to={`/blog/${post.slug}.html`} className="group block">
+      {/* Cartes horizontales : en portrait 4/5, des vignettes pleine largeur
+          écrasaient les titres sous 650 px de photo. */}
+      <ul className="mx-auto max-w-3xl">
+        {posts.map((post, i) => (
+          <li key={post.slug} className={i !== 0 ? 'border-t border-powder/60 pt-10' : ''}>
+            <Link
+              to={`/blog/${post.slug}.html`}
+              className="group grid gap-7 pb-10 sm:grid-cols-[168px_1fr] sm:gap-9"
+            >
               <img
                 src={post.image}
                 alt={post.imageAlt}
-                width="800" height="500" loading="lazy"
-                className="aspect-[8/5] w-full rounded-card object-cover"
+                width="760" height="950" loading="lazy"
+                className="aspect-[4/5] w-full rounded-niche object-cover"
               />
-              <p className="mt-6 text-xs uppercase tracking-overline text-clay">
-                {post.dateLisible} · {post.lecture}
-              </p>
-              <h2 className="mt-3 text-xl transition-colors duration-200 group-hover:text-brick">
-                {post.titre}
-              </h2>
-              <p className="mt-3 text-[15px] leading-relaxed text-muted">{post.resume}</p>
+              <div className="self-center">
+                <p className="text-xs uppercase tracking-overline text-clay">
+                  {post.dateLisible} · {post.lecture}
+                </p>
+                <h2 className="mt-3 text-xl transition-colors duration-200 group-hover:text-brick">
+                  {post.titre}
+                </h2>
+                <p className="mt-3 text-[15px] leading-relaxed text-muted">{post.resume}</p>
+                <span className="link-arrow mt-5 inline-flex">Lire l’article</span>
+              </div>
             </Link>
           </li>
         ))}

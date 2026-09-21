@@ -31,20 +31,24 @@ const Article = () => {
           <Link to="/blog.html" className="inline-flex items-center gap-2 text-sm text-muted transition-colors hover:text-ink">
             <ArrowLeft size={15} strokeWidth={1.6} aria-hidden="true" /> Tous les articles
           </Link>
-          <p className="eyebrow mt-10">{post.dateLisible} · {post.lecture}</p>
-          <h1 className="h-display mt-4 max-w-3xl">{post.titre}</h1>
+          <div className="mt-10 grid items-center gap-10 md:grid-cols-[1fr_0.4fr] md:gap-16">
+            <div>
+              <p className="eyebrow">{post.dateLisible} · {post.lecture}</p>
+              <h1 className="h-display mt-4">{post.titre}</h1>
+            </div>
+            <img
+              src={post.image}
+              alt={post.imageAlt}
+              width="760" height="950"
+              className="aspect-[4/5] w-full rounded-niche object-cover"
+            />
+          </div>
         </div>
       </div>
 
       <Section>
         <article className="mx-auto max-w-prose">
-          <img
-            src={post.image}
-            alt={post.imageAlt}
-            width="1000" height="560" loading="lazy"
-            className="aspect-[16/9] w-full rounded-panel object-cover"
-          />
-          <div className="mt-12">
+          <div>
             {post.blocs.map((bloc, i) =>
               bloc.type === 'ul' ? (
                 <ul key={i} className="my-6 space-y-2.5">

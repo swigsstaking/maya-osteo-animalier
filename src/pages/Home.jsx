@@ -167,7 +167,7 @@ const Motifs = () => (
       title="Quand faire appel à un ostéopathe ?"
       lede={motifs.intro}
     />
-    <ul className="mt-12 grid gap-x-10 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
+    <ul className="mt-12 grid auto-rows-fr gap-x-10 sm:grid-cols-2 lg:grid-cols-3">
       {motifs.cas.map((cas) => (
         <li key={cas} className="flex gap-3 border-b border-powder/50 py-3 text-[15px] leading-relaxed text-muted">
           <span className="mt-[0.65em] h-1 w-1 shrink-0 rounded-full bg-clay" aria-hidden="true" />

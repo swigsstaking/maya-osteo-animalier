@@ -13,7 +13,7 @@ const Motifs = () => (
 
     <Section>
       <h2 className="h-section">{motifs.titre}</h2>
-      <ul className="mt-10 grid gap-x-12 sm:grid-cols-2">
+      <ul className="mt-10 grid auto-rows-fr gap-x-12 sm:grid-cols-2">
         {motifs.cas.map((cas) => (
           <li
             key={cas}
@@ -32,9 +32,9 @@ const Motifs = () => (
           src="/images/chat-endormi.webp"
           alt="Chat tigré endormi sur une couverture"
           width="750" height="937" loading="lazy"
-          className="aspect-[4/5] w-full rounded-niche object-cover"
+          className="order-2 aspect-[4/5] w-full rounded-niche object-cover lg:order-1"
         />
-        <div>
+        <div className="order-1 lg:order-2">
           <p className="eyebrow">Bon à savoir</p>
           <h2 className="h-section mt-4">Dans le doute, décrivez-moi ce que vous voyez</h2>
           <p className="mt-6 text-base leading-relaxed text-muted">

@@ -41,9 +41,9 @@ const Deroulement = () => (
           src="/images/patte-chien.webp"
           alt="Patte d’un chien détendu au soleil"
           width="760" height="950" loading="lazy"
-          className="aspect-[4/5] w-full rounded-niche object-cover"
+          className="order-2 aspect-[4/5] w-full rounded-niche object-cover lg:order-1"
         />
-        <div>
+        <div className="order-1 lg:order-2">
           <p className="eyebrow">Après la séance</p>
           <h2 className="h-section mt-4">48 heures de repos, sans immobiliser</h2>
           <p className="mt-6 text-base leading-relaxed text-muted">

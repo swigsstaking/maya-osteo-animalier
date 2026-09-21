@@ -76,7 +76,7 @@ export const tarifPreferentiel =
   'À partir de trois animaux de la même famille, au même lieu.'
 
 export const associations =
-  'Associations et centres équestres : contactez-moi, nous verrons ensemble.'
+  'Contactez-moi : nous verrons ensemble la formule la mieux adaptée.'
 
 export const tarifs = [
   { animal: 'Chevaux', prix: 140, lieu: 'Sur place, dans les installations hébergeant l’animal' },

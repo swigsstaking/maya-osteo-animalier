@@ -42,10 +42,23 @@ const CalendlyWidget = ({ url }) => {
 }
 
 const DirectContact = () => {
+  // L'adresse se coupait au milieu de « gmail.com » : on force la coupure
+  // juste avant l'arobase.
+  const [avant, apres] = site.email.split('@')
   const canaux = [
     { icon: Phone, label: 'Appeler', valeur: site.phoneDisplay, href: site.phoneHref },
     { icon: MessageCircle, label: 'WhatsApp', valeur: 'Écrire un message', href: site.whatsapp, ext: true },
-    { icon: Mail, label: 'E-mail', valeur: site.email, href: `mailto:${site.email}` },
+    {
+      icon: Mail,
+      label: 'E-mail',
+      href: `mailto:${site.email}`,
+      valeur: (
+        <>
+          {avant}
+          <wbr />@{apres}
+        </>
+      ),
+    },
   ]
 
   return (
@@ -60,7 +73,7 @@ const DirectContact = () => {
           >
             <Icon size={20} strokeWidth={1.4} className="text-clay" aria-hidden="true" />
             <span className="eyebrow">{label}</span>
-            <span className="break-all text-[15px] text-ink">{valeur}</span>
+            <span className="text-[15px] text-ink">{valeur}</span>
           </a>
         ))}
       </div>
