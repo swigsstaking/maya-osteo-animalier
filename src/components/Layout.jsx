@@ -127,9 +127,9 @@ const Footer = () => (
             </a>
           </li>
           <li>
-            <a href={`mailto:${site.email}`} className="inline-flex items-start gap-2 transition-colors hover:text-ink">
+            <a href={`mailto:${site.email}`} className="flex items-start gap-2 transition-colors hover:text-ink">
               <Mail size={14} strokeWidth={1.6} className="mt-1 shrink-0" aria-hidden="true" />
-              <span>
+              <span className="[overflow-wrap:anywhere]">
                 {site.email.split('@')[0]}
                 <wbr />@{site.email.split('@')[1]}
               </span>

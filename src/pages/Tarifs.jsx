@@ -9,7 +9,7 @@ const Tarifs = () => (
     <PageHeader
       overline="Tarifs"
       title="Tarifs et zones de déplacement"
-      lede="Les consultations se déroulent à domicile pour les chiens, les chats et les NAC, et dans les installations hébergeant les chevaux ainsi que les bovins."
+      lede="Les consultations se déroulent à domicile pour les chiens, les chats et les petits animaux, et dans les installations hébergeant les chevaux ainsi que les bovins."
     />
 
     <Section>

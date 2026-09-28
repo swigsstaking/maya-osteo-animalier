@@ -73,7 +73,7 @@ const DirectContact = () => {
           >
             <Icon size={20} strokeWidth={1.4} className="text-clay" aria-hidden="true" />
             <span className="eyebrow">{label}</span>
-            <span className="text-[15px] text-ink">{valeur}</span>
+            <span className="text-[15px] text-ink [overflow-wrap:anywhere]">{valeur}</span>
           </a>
         ))}
       </div>

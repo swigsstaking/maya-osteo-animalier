@@ -31,7 +31,7 @@ const RendezVous = () => (
         <div>
           <h2 className="eyebrow">Lieu de la séance</h2>
           <p className="mt-3 text-[15px] leading-relaxed text-muted">
-            À votre domicile pour les chiens, chats et NAC. Sur place pour les chevaux et les bovins.
+            À votre domicile pour les chiens, les chats et les petits animaux. Sur place pour les chevaux et les bovins.
           </p>
         </div>
         <div>

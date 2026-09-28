@@ -17,7 +17,13 @@ npm install
 npm run dev          # serveur local
 npm run build        # ce que lance l'hébergeur : vite build + copie du prérendu
 npm run prerender    # à relancer EN LOCAL après toute modification de contenu
+npm run audit        # cherche ce qui déborde, 10 pages × 6 largeurs
 ```
+
+`npm run audit` a besoin du site servi en local (`npm run build`, puis
+`node server.js` sur le port 5265). `ZOOM_POLICE=125 npm run audit` rejoue le
+même passage avec le texte agrandi, le réglage d'accessibilité qui fait sauter
+la plupart des mises en page.
 
 ### Le prérendu, et pourquoi il est en deux temps
 
@@ -42,6 +48,18 @@ Quand on ajoute une page, cinq endroits à synchroniser — et l'adresse doit se
 en `.html` partout : `src/App.jsx` (route + redirection sans extension) ·
 `src/components/Layout.jsx` (navigation) · `src/data/seo.json` (métadonnées) ·
 `scripts/prerender.mjs` (`ROUTES`) · `public/sitemap.xml`.
+
+### La carte du secteur
+
+`scripts/carte-secteur.mjs` engendre `src/components/CarteSecteur.jsx` : un cercle
+de 40 km autour de Chambrelien, posé sur les cantons voisins et les trois lacs.
+Les contours viennent d'OpenStreetMap et sont figés dans `scripts/data/`.
+Changer le rayon ou les villes repères, puis relancer
+`node scripts/carte-secteur.mjs` — et penser à `zones.rayonKm` dans
+`src/data/site.js`, qui affiche la même valeur en toutes lettres.
+
+Pas de carte interactive : ce serait la seule ressource externe du site, elle
+arriverait avec ses propres couleurs, et elle serait absente du HTML prérendu.
 
 ### Pourquoi les URL se terminent en `.html`
 

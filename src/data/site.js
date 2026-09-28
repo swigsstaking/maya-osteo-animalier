@@ -56,6 +56,8 @@ export const zones = {
   // Le secteur tel que Maya le décrit : « à peu près Yverdon – Bienne –
   // Fribourg ». Ces localités servent de repères sur la carte et de liste
   // lisible en dessous.
+  // Rayon annoncé sur la carte (scripts/carte-secteur.mjs utilise la même valeur).
+  rayonKm: 40,
   reperes: [
     'Neuchâtel',
     'La Chaux-de-Fonds',
@@ -65,6 +67,8 @@ export const zones = {
     'Val-de-Travers',
     'Le Landeron',
     'Morat',
+    'Payerne',
+    'Le Locle',
   ],
   // ⚠️ À COMPLÉTER AVEC MAYA : frais de déplacement au-delà du secteur.
   fraisDeplacement: null,

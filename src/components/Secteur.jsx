@@ -14,7 +14,11 @@ const Secteur = ({ className = '' }) => (
       <CarteSecteur className="mx-auto w-full min-w-[620px] max-w-[880px]" />
     </div>
 
-    <ul className="mt-8 flex flex-wrap justify-center gap-x-3 gap-y-2">
+    <p className="mt-6 text-center text-sm text-muted">
+      Environ {zones.rayonKm} km autour de Chambrelien.
+    </p>
+
+    <ul className="mt-6 flex flex-wrap justify-center gap-x-3 gap-y-2">
       {zones.reperes.map((v) => (
         <li
           key={v}
@@ -25,7 +29,7 @@ const Secteur = ({ className = '' }) => (
       ))}
     </ul>
 
-    <p className="mt-6 text-center text-sm leading-relaxed text-muted">
+    <p className="mx-auto mt-6 max-w-prose text-center text-sm leading-relaxed text-muted">
       Votre localité n’apparaît pas&nbsp;? Écrivez-la-moi&nbsp;: je vous dis tout de suite
       si je me déplace chez vous, et à quelles conditions.
     </p>

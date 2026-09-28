@@ -9,7 +9,7 @@ export const animaux = [
   { id: 'chien', label: 'Chiens', image: '/images/animal-chien.webp', alt: 'Maya en consultation avec un caniche' },
   { id: 'chat', label: 'Chats', image: '/images/animal-chat.webp', alt: 'Chat tigré détendu dans les bras' },
   { id: 'bovin', label: 'Bovins', image: '/images/animal-bovins.webp', alt: 'Maya au milieu d’un troupeau de vaches' },
-  { id: 'nac', label: 'NAC', note: 'lapins, rongeurs, furets…' },
+  { id: 'nac', label: 'Lapins, hamsters…', note: 'et autres NAC' },
 ]
 
 export const etapes = [
@@ -83,7 +83,7 @@ export const tarifs = [
   { animal: 'Bovins', prix: 120, lieu: 'Sur place, dans les installations hébergeant l’animal' },
   { animal: 'Chiens', prix: 110, lieu: 'À domicile' },
   { animal: 'Chats', prix: 110, lieu: 'À domicile' },
-  { animal: 'NAC', prix: 80, lieu: 'À domicile' },
+  { animal: 'Lapins, hamsters et autres NAC', prix: 80, lieu: 'À domicile' },
 ]
 
 export const avis = [
@@ -116,7 +116,7 @@ export const apropos = {
   parcours: [
     "Les animaux font partie de mon quotidien depuis toujours : cavalière depuis mes plus jeunes années, j'ai évolué en compétition. Je partage également ma vie avec mes deux chats.",
     "Mon parcours et ma formation en ostéopathie animale m'ont appris à observer chaque animal dans son ensemble : un mouvement, une attitude, une petite différence… autant d'indices qui permettent de le comprendre.",
-    "J'interviens à domicile dans le canton de Neuchâtel et ses environs, auprès des chevaux, chiens, chats, bovins et NAC, grâce à une approche douce et adaptée à chaque animal.",
+    "J'interviens à domicile dans le canton de Neuchâtel et ses environs, auprès des chevaux, chiens, chats, bovins, lapins et hamsters, grâce à une approche douce et adaptée à chaque animal.",
     'Au plaisir de vous rencontrer !',
   ],
 }

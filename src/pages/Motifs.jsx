@@ -28,11 +28,13 @@ const Motifs = () => (
 
     <Section tone="sand">
       <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        {/* Format horizontal demandé : la niche s'écrase sur une image large,
+            on garde donc le rectangle arrondi. */}
         <img
-          src="/images/chat-endormi.webp"
-          alt="Chat tigré endormi sur une couverture"
-          width="750" height="937" loading="lazy"
-          className="order-2 aspect-[4/5] w-full rounded-niche object-cover lg:order-1"
+          src="/images/chat-endormi-large.webp"
+          alt="Chat tigré endormi contre une couverture"
+          width="750" height="500" loading="lazy"
+          className="order-2 aspect-[3/2] w-full rounded-panel object-cover lg:order-1"
         />
         <div className="order-1 lg:order-2">
           <p className="eyebrow">Bon à savoir</p>

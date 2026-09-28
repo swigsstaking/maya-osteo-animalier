@@ -18,7 +18,7 @@ const Hero = () => (
           ostéopathe animalier
         </h1>
         <p className="lede mt-6">
-          Une approche douce et globale pour chevaux, chiens, chats, bovins et NAC.
+          Une approche douce et globale pour chevaux, chiens, chats, bovins, lapins et hamsters.
           Je me déplace chez vous, dans le canton de Neuchâtel et ses environs.
         </p>
         <div className="mt-9 flex flex-wrap gap-3">
@@ -56,7 +56,7 @@ const Hero = () => (
 )
 
 const Osteopathie = () => (
-  <Section>
+  <Section tone="sand">
     <div className="grid gap-12 lg:grid-cols-[0.9fr_1fr] lg:gap-16">
       <div className="grid grid-cols-2 gap-4 self-start">
         <img
@@ -85,7 +85,7 @@ const Osteopathie = () => (
 )
 
 const QuiSuisJe = () => (
-  <Section tone="sand">
+  <Section>
     <div className="grid gap-12 lg:grid-cols-[1fr_0.8fr] lg:gap-16">
       <div className="self-center">
         <SectionHead overline="Qui suis-je" title="Bonjour, moi c’est Maya" />
@@ -138,7 +138,7 @@ const PourQuelAnimal = () => (
 )
 
 const Deroulement = () => (
-  <Section tone="sand">
+  <Section>
     <SectionHead
       overline="Déroulement"
       title="Comment se passe une consultation ?"
@@ -161,7 +161,7 @@ const Deroulement = () => (
 )
 
 const Motifs = () => (
-  <Section>
+  <Section tone="sand">
     <SectionHead
       overline="Motifs de consultation"
       title="Quand faire appel à un ostéopathe ?"
@@ -230,7 +230,7 @@ const Zone = () => (
     <SectionHead
       overline="Zone de déplacement"
       title="Je viens à vous"
-      lede="D’Yverdon-les-Bains à Bienne et jusqu’à Fribourg. Les consultations se déroulent à domicile pour les chiens, les chats et les NAC, et dans les installations hébergeant les chevaux et les bovins."
+      lede="D’Yverdon-les-Bains à Bienne et jusqu’à Fribourg. Les consultations se déroulent à domicile pour les chiens, les chats et les petits animaux, et dans les installations hébergeant les chevaux et les bovins."
       align="center"
       className="max-w-2xl"
     />
@@ -242,11 +242,11 @@ const Home = () => (
   <>
     <SEOHead page="home" jsonLd={localBusinessJsonLd} />
     <Hero />
+    <PourQuelAnimal />
     <Osteopathie />
     <QuiSuisJe />
-    <PourQuelAnimal />
-    <Deroulement />
     <Motifs />
+    <Deroulement />
     <Valeurs />
     <Avis />
     <Zone />
