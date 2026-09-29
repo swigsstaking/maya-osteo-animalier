@@ -2,14 +2,12 @@
 // Repris du site actuel de Maya, à l'identique sur le fond : seules les fautes
 // d'orthographe et de syntaxe ont été corrigées.
 
-// `image` absente = tuile illustrée (voir PourQuelAnimal dans Home.jsx).
-// ⚠️ À REMPLACER dès que Maya fournit une photo de consultation sur un NAC.
 export const animaux = [
-  { id: 'cheval', label: 'Chevaux', image: '/images/animal-cheval.webp', alt: 'Tête d’un cheval noir en licol' },
+  { id: 'cheval', label: 'Chevaux', image: '/images/consultation-cheval.webp', alt: 'Maya en consultation sur un cheval gris' },
   { id: 'chien', label: 'Chiens', image: '/images/animal-chien.webp', alt: 'Maya en consultation avec un caniche' },
   { id: 'chat', label: 'Chats', image: '/images/animal-chat.webp', alt: 'Chat tigré détendu dans les bras' },
   { id: 'bovin', label: 'Bovins', image: '/images/animal-bovins.webp', alt: 'Maya au milieu d’un troupeau de vaches' },
-  { id: 'nac', label: 'Lapins, hamsters…', note: 'et autres NAC' },
+  { id: 'nac', label: 'Lapins, hamsters…', image: '/images/lapin.webp', alt: 'Maya en consultation sur un lapin angora blanc' },
 ]
 
 export const etapes = [

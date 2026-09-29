@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Star, Rabbit, Phone } from 'lucide-react'
+import { Star, Phone } from 'lucide-react'
 import SEOHead from '../components/SEOHead'
 import { Section, SectionHead, ArrowLink, CtaBand } from '../components/ui'
 import Secteur from '../components/Secteur'
@@ -66,8 +66,8 @@ const Osteopathie = () => (
           className="aspect-[4/5] w-full rounded-niche object-cover"
         />
         <img
-          src="/images/patte-chien.webp"
-          alt="Patte d’un chien détendu au soleil"
+          src="/images/consultation-vache.webp"
+          alt="Maya en consultation, les mains sur la tête d’une vache"
           width="760" height="950" loading="lazy"
           className="mt-10 aspect-[4/5] w-full rounded-niche object-cover"
         />
@@ -117,19 +117,12 @@ const PourQuelAnimal = () => (
     <ul className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5 lg:gap-6">
       {animaux.map((a) => (
         <li key={a.id} className="text-center">
-          {a.image ? (
-            <img
-              src={a.image}
-              alt={a.alt}
-              width="760" height="950" loading="lazy"
-              className="aspect-[4/5] w-full rounded-niche object-cover"
-            />
-          ) : (
-            <div className="flex aspect-[4/5] w-full flex-col items-center justify-center gap-3 rounded-niche bg-blush px-4">
-              <Rabbit size={44} strokeWidth={1} className="text-clay" aria-hidden="true" />
-              <span className="text-xs leading-snug text-muted">{a.note}</span>
-            </div>
-          )}
+          <img
+            src={a.image}
+            alt={a.alt}
+            width="760" height="950" loading="lazy"
+            className="aspect-[4/5] w-full rounded-niche object-cover"
+          />
           <p className="mt-4 text-[13px] uppercase tracking-overline text-muted">{a.label}</p>
         </li>
       ))}
