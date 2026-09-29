@@ -21,8 +21,8 @@ const APropos = () => (
         <img
           src="/images/maya-diplome.webp"
           alt="Maya Arnould le jour de sa remise de diplôme, son diplôme de l’ESAO en main"
-          width="760" height="950" loading="lazy"
-          className="aspect-[4/5] w-full rounded-niche object-cover"
+          width="1125" height="1406" loading="lazy"
+          className="mx-auto aspect-[4/5] w-full max-w-[560px] rounded-niche object-cover lg:max-w-none"
         />
       </div>
     </Section>
@@ -32,8 +32,8 @@ const APropos = () => (
         <img
           src="/images/maya-portrait-lac.webp"
           alt="Maya Arnould en polo de travail au bord du lac"
-          width="760" height="950" loading="lazy"
-          className="order-2 aspect-[4/5] w-full rounded-niche object-cover lg:order-1"
+          width="1200" height="1500" loading="lazy"
+          className="order-2 mx-auto aspect-[4/5] w-full max-w-[560px] rounded-niche object-cover lg:order-1 lg:max-w-none"
         />
         <div className="order-1 lg:order-2">
           <h2 className="h-section">Mon parcours</h2>

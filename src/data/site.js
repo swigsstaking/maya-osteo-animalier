@@ -42,12 +42,18 @@ export const site = {
   },
 
   // ── Prise de rendez-vous ────────────────────────────────────────────────
-  // Renseigner l'URL publique de l'agenda (Calendly, Reservio…) pour activer
-  // le widget. Tant qu'elle est vide, la page affiche les canaux de contact
-  // direct — le site reste donc parfaitement utilisable.
+  // L'agenda est servi par Swigs Studio. Il suffit du slug du profil de
+  // réservation de Maya pour l'activer :
+  //   https://calendar.swigs.online/book/<slug>
+  // Tant qu'il est vide, la page /rendez-vous.html affiche les canaux de
+  // contact direct — le site reste donc parfaitement utilisable.
+  //
+  // ⚠️ Le profil n'existe pas encore : au 29.09.2026, l'API publique
+  // (calendar.swigs.online/api/widget/<slug>) répond 404 sur tous les slugs
+  // essayés pour Maya.
   booking: {
-    url: '',
-    provider: '', // 'calendly' | 'reservio'
+    slug: '',
+    couleur: '#AE4721', // la brique du logo, reprise par le widget
   },
 }
 

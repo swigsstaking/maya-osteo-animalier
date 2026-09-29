@@ -34,7 +34,7 @@ const Motifs = () => (
           src="/images/chat-endormi-large.webp"
           alt="Chat tigré endormi contre une couverture"
           width="750" height="500" loading="lazy"
-          className="order-2 aspect-[3/2] w-full rounded-panel object-cover lg:order-1"
+          className="order-2 mx-auto aspect-[3/2] w-full max-w-[640px] rounded-panel object-cover lg:order-1 lg:max-w-none"
         />
         <div className="order-1 lg:order-2">
           <p className="eyebrow">Bon à savoir</p>

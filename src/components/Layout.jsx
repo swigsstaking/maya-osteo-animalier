@@ -18,7 +18,7 @@ export const navigation = [
 
 const Logo = ({ className = '' }) => (
   <Link to="/" className={`flex items-center gap-3 ${className}`} aria-label="Maya Arnould, ostéopathe animalier — accueil">
-    <img src="/images/logo-mark.webp" alt="" width="52" height="26" className="h-7 w-auto" />
+    <img src="/images/logo-mark.webp" alt="" width="320" height="160" className="h-7 w-auto" />
     <span className="leading-tight">
       <span className="block text-[15px] font-medium tracking-wide text-ink">Maya Arnould</span>
       <span className="block text-[10px] uppercase tracking-overline text-clay">Ostéopathe animalier</span>
@@ -114,7 +114,7 @@ const Footer = () => (
   <footer className="mt-auto border-t border-powder/60 bg-sand">
     <div className="container-site grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
       <div className="sm:col-span-2 lg:col-span-1">
-        <img src="/images/logo-maya.webp" alt="Maya Arnould, ostéopathe animalier" width="180" height="150" className="h-24 w-auto" />
+        <img src="/images/logo-maya.webp" alt="Maya Arnould, ostéopathe animalier" width="420" height="350" className="h-24 w-auto" />
         <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">{site.baseline}</p>
       </div>
 

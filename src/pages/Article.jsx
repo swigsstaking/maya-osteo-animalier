@@ -39,7 +39,7 @@ const Article = () => {
             <img
               src={post.image}
               alt={post.imageAlt}
-              width="760" height="950"
+              width={post.imageW} height={post.imageH}
               className="aspect-[4/5] w-full rounded-niche object-cover"
             />
           </div>

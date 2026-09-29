@@ -10,7 +10,7 @@ const RendezVous = () => (
       overline="Prendre rendez-vous"
       title="Réserver une consultation"
       lede={
-        site.booking.url
+        site.booking.slug
           ? 'Choisissez le créneau qui vous convient. Vous recevrez une confirmation par e-mail.'
           : 'Écrivez-moi ou appelez-moi : je vous propose un créneau et je me déplace chez vous.'
       }

@@ -10,7 +10,8 @@
     "prerender": "vite build && node scripts/prerender.mjs",
     "start": "node server.js",
     "preview": "vite preview",
-    "audit": "node scripts/audit-ergonomie.mjs"
+    "audit": "node scripts/audit-ergonomie.mjs",
+    "audit:images": "node scripts/audit-images.mjs"
   },
   "dependencies": {
     "lucide-react": "^1.45.0",

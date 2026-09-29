@@ -47,7 +47,7 @@ const Hero = () => (
           alt="Maya Arnould tenant un chat roux dans les bras"
           width="1050"
           height="1400"
-          className="aspect-[4/5] w-full rounded-niche object-cover shadow-soft"
+          className="mx-auto aspect-[4/5] w-full max-w-[560px] rounded-niche object-cover shadow-soft lg:max-w-none"
           fetchPriority="high"
         />
       </div>
@@ -62,13 +62,13 @@ const Osteopathie = () => (
         <img
           src="/images/consultation-chien.webp"
           alt="Maya en consultation sur un chien blanc, sous une tente"
-          width="760" height="950" loading="lazy"
+          width="700" height="875" loading="lazy"
           className="aspect-[4/5] w-full rounded-niche object-cover"
         />
         <img
           src="/images/consultation-vache.webp"
           alt="Maya en consultation, les mains sur la tête d’une vache"
-          width="760" height="950" loading="lazy"
+          width="700" height="875" loading="lazy"
           className="mt-10 aspect-[4/5] w-full rounded-niche object-cover"
         />
       </div>
@@ -98,8 +98,8 @@ const QuiSuisJe = () => (
       <img
         src="/images/maya-chien-malamute.webp"
         alt="Maya assise dans l’herbe à côté d’un grand chien"
-        width="1400" height="1300" loading="lazy"
-        className="aspect-square w-full rounded-niche object-cover"
+        width="1120" height="1120" loading="lazy"
+        className="mx-auto aspect-square w-full max-w-[560px] rounded-niche object-cover lg:max-w-none"
       />
     </div>
   </Section>

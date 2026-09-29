@@ -138,19 +138,34 @@ pas `primary-600`. Voir `tailwind.config.js`.
 ⚠️ `overline` est un utilitaire Tailwind (`text-decoration: overline`) : la classe de
 surtitre s'appelle donc `.eyebrow`, pas `.overline`.
 
-## Prise de rendez-vous
+## Prise de rendez-vous — Swigs Studio
 
-`src/data/site.js` → `booking.url`. Tant qu'elle est vide, la page `/rendez-vous`
-affiche les canaux de contact direct (téléphone, WhatsApp, e-mail) et reste
-parfaitement utilisable. Renseigner l'URL publique de l'agenda suffit à activer le
-widget :
+L'agenda est servi par **Swigs Studio** (plateforme Swigs : Studio + Calendar +
+Widget). Il suffit du slug du profil de réservation de Maya :
 
 ```js
-booking: { url: 'https://calendly.com/…', provider: 'calendly' }
+// src/data/site.js
+booking: { slug: 'maya-arnould', couleur: '#AE4721' }
 ```
 
-`provider: 'calendly'` charge le widget officiel ; toute autre valeur affiche l'URL
-dans une iframe (Reservio et la plupart des outils fonctionnent ainsi).
+La page intègre alors `https://calendar.swigs.online/book/<slug>?embed=1&primary=…`
+dans une iframe. En iframe et non en script : le widget vit sur un autre domaine,
+l'isolation empêche son CSS de déteindre sur le site, et une panne de son côté
+n'emporte pas la page.
+
+**⚠️ Le profil n'existe pas encore.** Au 29.09.2026, `calendar.swigs.online/api/widget/<slug>`
+répond 404 sur tous les slugs essayés. Tant que `slug` est vide, `/rendez-vous.html`
+affiche téléphone, WhatsApp et e-mail — la page reste donc utilisable.
+
+Pour vérifier qu'un slug existe :
+
+```bash
+curl -s -o /dev/null -w '%{http_code}\n' https://calendar.swigs.online/api/widget/<slug>
+```
+
+Le widget reprend la couleur passée en `primary` ; `HAUTEUR` dans
+`src/components/BookingEmbed.jsx` fixe la hauteur de l'iframe, le widget ne
+communiquant pas la sienne au parent.
 
 ## Ce qui a été corrigé par rapport au site Wix
 

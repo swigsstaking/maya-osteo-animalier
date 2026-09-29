@@ -9,6 +9,8 @@ export const posts = [
     dateLisible: '27 juillet 2025',
     lecture: '2 min de lecture',
     image: '/images/maya-a-cheval.webp',
+    imageW: 379,
+    imageH: 474,
     imageAlt: 'Maya à cheval, franchissant un obstacle en concours',
     resume:
       "Le sport sollicite fortement l'organisme, même sans blessure. Pourquoi un suivi ostéopathique préventif a toute sa place auprès d'un animal sportif.",
@@ -73,6 +75,8 @@ export const posts = [
     dateLisible: '27 juillet 2025',
     lecture: '2 min de lecture',
     image: '/images/animal-cheval.webp',
+    imageW: 720,
+    imageH: 914,
     imageAlt: 'Tête d’un cheval noir en licol',
     resume:
       "« Plus ça craque, plus c'est efficace » : une idée très répandue, et pourtant fausse en ostéopathie animale.",

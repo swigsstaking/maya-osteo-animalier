@@ -1,45 +1,34 @@
-import { useEffect, useRef } from 'react'
 import { Phone, MessageCircle, Mail } from 'lucide-react'
 import { site } from '../data/site'
 
 /**
- * Agenda de prise de rendez-vous.
+ * Agenda de prise de rendez-vous, servi par Swigs Studio.
  *
- * Tant que `site.booking.url` est vide, on affiche les canaux de contact direct :
- * le visiteur peut toujours joindre Maya. Renseigner l'URL de l'agenda
- * (Calendly ou Reservio) dans src/data/site.js suffit à activer le widget.
+ * Tant que `site.booking.slug` est vide, la page affiche les canaux de contact
+ * direct : le visiteur peut toujours joindre Maya. Renseigner le slug de son
+ * profil de réservation suffit à activer l'agenda.
+ *
+ * Intégré en iframe plutôt qu'en script : le widget vit sur un autre domaine,
+ * et une iframe l'isole complètement — son CSS ne peut pas déteindre sur le
+ * site, et une panne de son côté n'emporte pas la page.
  */
 
-const CALENDLY_CSS = 'https://assets.calendly.com/assets/external/widget.css'
-const CALENDLY_JS = 'https://assets.calendly.com/assets/external/widget.js'
+// Le widget ne communique pas sa hauteur au parent : on réserve de quoi
+// afficher ses quatre étapes, il défile à l'intérieur si besoin.
+const HAUTEUR = 820
 
-const CalendlyWidget = ({ url }) => {
-  const ref = useRef(null)
-
-  useEffect(() => {
-    if (!document.querySelector(`link[href="${CALENDLY_CSS}"]`)) {
-      const link = document.createElement('link')
-      link.rel = 'stylesheet'
-      link.href = CALENDLY_CSS
-      document.head.appendChild(link)
+const AgendaSwigs = ({ slug }) => (
+  <iframe
+    src={
+      `https://calendar.swigs.online/book/${encodeURIComponent(slug)}` +
+      `?embed=1&primary=${encodeURIComponent(site.booking.couleur)}`
     }
-    if (!document.querySelector(`script[src="${CALENDLY_JS}"]`)) {
-      const script = document.createElement('script')
-      script.src = CALENDLY_JS
-      script.async = true
-      document.body.appendChild(script)
-    }
-  }, [])
-
-  return (
-    <div
-      ref={ref}
-      className="calendly-inline-widget overflow-hidden rounded-panel border border-powder/60 bg-white"
-      data-url={url}
-      style={{ minWidth: '320px', height: '760px' }}
-    />
-  )
-}
+    title="Prendre rendez-vous avec Maya Arnould"
+    loading="lazy"
+    className="w-full rounded-panel border border-powder/60 bg-white"
+    style={{ height: HAUTEUR }}
+  />
+)
 
 const DirectContact = () => {
   // L'adresse se coupait au milieu de « gmail.com » : on force la coupure
@@ -86,19 +75,8 @@ const DirectContact = () => {
 }
 
 const BookingEmbed = () => {
-  const { url, provider } = site.booking
-
-  if (!url) return <DirectContact />
-  if (provider === 'calendly') return <CalendlyWidget url={url} />
-
-  return (
-    <iframe
-      src={url}
-      title="Prise de rendez-vous en ligne"
-      loading="lazy"
-      className="h-[760px] w-full rounded-panel border border-powder/60 bg-white"
-    />
-  )
+  const { slug } = site.booking
+  return slug ? <AgendaSwigs slug={slug} /> : <DirectContact />
 }
 
 export default BookingEmbed

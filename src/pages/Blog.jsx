@@ -25,7 +25,7 @@ const Blog = () => (
               <img
                 src={post.image}
                 alt={post.imageAlt}
-                width="760" height="950" loading="lazy"
+                width={post.imageW} height={post.imageH} loading="lazy"
                 className="aspect-[4/5] w-full rounded-niche object-cover"
               />
               <div className="self-center">
