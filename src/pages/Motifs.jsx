@@ -42,7 +42,7 @@ const Motifs = () => (
           <p className="mt-6 text-base leading-relaxed text-muted">
             Un changement d’attitude, une hésitation devant un escalier, une raideur au
             réveil : ce sont souvent ces petits signes qui amènent à consulter. Si vous
-            hésitez, écrivez-moi — je vous dirai si une séance est indiquée.
+            hésitez, écrivez-moi, je vous dirai si une séance est indiquée.
           </p>
           <p className="mt-5 border-l-2 border-powder pl-5 text-sm leading-relaxed text-muted">
             {osteopathie.note}

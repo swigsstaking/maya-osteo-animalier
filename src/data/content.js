@@ -109,7 +109,7 @@ export const apropos = {
     "Je suis Maya, ostéopathe pour les animaux, diplômée de l'ESAO après cinq années d'études.",
   paragraphes: [
     "Ce qui me plaît dans mon métier, c'est d'aider à créer un dialogue entre l'animal et son propriétaire. J'observe ce que son corps me montre, et j'aide le propriétaire à mieux comprendre certains signaux.",
-    "Avec une approche ostéopathique douce et globale — musculo-squelettique, viscérale et crânienne — je cherche à redonner à votre compagnon du confort, et à renforcer cette relation qui vous unit.",
+    "Avec une approche ostéopathique douce et globale (musculo-squelettique, viscérale et crânienne), je cherche à redonner à votre compagnon du confort, et à renforcer cette relation qui vous unit.",
   ],
   parcours: [
     "Les animaux font partie de mon quotidien depuis toujours : cavalière depuis mes plus jeunes années, j'ai évolué en compétition. Je partage également ma vie avec mes deux chats.",
@@ -122,7 +122,7 @@ export const apropos = {
 export const osteopathie = {
   titre: "Qu'est-ce que l'ostéopathie animale ?",
   texte:
-    "L'ostéopathie animale est une thérapie manuelle qui considère l'animal dans son ensemble. Plutôt que de traiter un symptôme isolé, elle cherche l'origine de la gêne : une perte de mobilité quelque part dans le corps, que l'animal compense ailleurs. Mon approche est douce et globale — musculo-squelettique, viscérale et crânienne — et s'adapte à chaque animal, à son caractère et à son mode de vie.",
+    "L'ostéopathie animale est une thérapie manuelle qui considère l'animal dans son ensemble. Plutôt que de traiter un symptôme isolé, elle cherche l'origine de la gêne : une perte de mobilité quelque part dans le corps, que l'animal compense ailleurs. Mon approche est douce et globale (musculo-squelettique, viscérale et crânienne) et s'adapte à chaque animal, à son caractère et à son mode de vie.",
   note:
     "L'ostéopathie ne remplace ni le suivi ni le diagnostic vétérinaire : elle les complète.",
 }
@@ -130,6 +130,6 @@ export const osteopathie = {
 export const valeurs = [
   { titre: 'Douceur', texte: "Des techniques manuelles adaptées, jamais forcées, dans le respect du rythme de l'animal." },
   { titre: 'Écoute', texte: "Le temps de comprendre l'animal, son environnement et ce que le propriétaire observe au quotidien." },
-  { titre: 'Globalité', texte: 'Une lecture du corps entier — musculo-squelettique, viscérale et crânienne.' },
+  { titre: 'Globalité', texte: 'Une lecture du corps entier : musculo-squelettique, viscérale et crânienne.' },
   { titre: 'Proximité', texte: "Je me déplace chez vous, dans un lieu où l'animal est en confiance." },
 ]

@@ -25,7 +25,7 @@ export const site = {
     lng: 6.8281,
   },
 
-  hours: 'Lundi au vendredi, 8h00 – 18h30',
+  hours: 'Lundi au vendredi, de 8h00 à 18h30',
   hoursSchema: ['Mo-Fr 08:00-18:30'],
 
   social: {

@@ -19,7 +19,7 @@ const Article = () => {
     <>
       <SEOHead
         page="blog"
-        title={`${post.titre} — Blog de Maya Arnould`}
+        title={`${post.titre} | Blog de Maya Arnould`}
         description={post.resume}
         path={`/blog/${post.slug}.html`}
         image={post.image}

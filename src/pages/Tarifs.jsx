@@ -50,7 +50,7 @@ const Tarifs = () => (
       <SectionHead
         overline="Zone de déplacement"
         title="Où je me déplace"
-        lede="Mon secteur s’étend d’Yverdon-les-Bains à Bienne et jusqu’à Fribourg — le canton de Neuchâtel et ses environs."
+        lede="Mon secteur s’étend d’Yverdon-les-Bains à Bienne et jusqu’à Fribourg, soit le canton de Neuchâtel et ses environs."
         align="center"
         className="max-w-2xl"
       />

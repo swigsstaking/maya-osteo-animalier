@@ -49,7 +49,7 @@ const Deroulement = () => (
           <p className="mt-6 text-base leading-relaxed text-muted">
             Le corps a besoin d’un peu de temps pour assimiler les changements : nouvelles
             possibilités de mouvement, disparition d’une douleur. Un repos non strict de 48 heures
-            minimum est conseillé — pas d’enfermement, simplement pas d’effort intense.
+            minimum est conseillé : pas d’enfermement, simplement pas d’effort intense.
           </p>
           <p className="mt-4 text-base leading-relaxed text-muted">
             La rééducation, elle, est adaptée à chaque animal, à son mode de vie et à ses propres

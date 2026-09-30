@@ -16,13 +16,13 @@ export const localBusinessJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'VeterinaryCare',
   '@id': `${seo.site.url}/#business`,
-  name: `${site.name} — ${site.role}`,
+  name: `${site.name}, ${site.role.toLowerCase()}`,
   description: seo.pages.home.description,
   url: seo.site.url,
   telephone: site.phone,
   email: site.email,
   image: seo.site.ogImage,
-  priceRange: 'CHF 80–140',
+  priceRange: 'CHF 80-140',
   address,
   geo: {
     '@type': 'GeoCoordinates',
@@ -47,7 +47,7 @@ export const localBusinessJsonLd = {
     jobTitle: site.role,
     alumniOf: {
       '@type': 'EducationalOrganization',
-      name: 'ESAO — École Supérieure d’Ostéopathie Animale, Lisieux',
+      name: 'École Supérieure d’Ostéopathie Animale (ESAO), Lisieux',
     },
   },
   makesOffer: [

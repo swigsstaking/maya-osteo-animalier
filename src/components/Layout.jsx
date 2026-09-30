@@ -17,7 +17,7 @@ export const navigation = [
 ]
 
 const Logo = ({ className = '' }) => (
-  <Link to="/" className={`flex items-center gap-3 ${className}`} aria-label="Maya Arnould, ostéopathe animalier — accueil">
+  <Link to="/" className={`flex items-center gap-3 ${className}`} aria-label="Maya Arnould, ostéopathe animalier, accueil">
     <img src="/images/logo-mark.webp" alt="" width="320" height="160" className="h-7 w-auto" />
     <span className="leading-tight">
       <span className="block text-[15px] font-medium tracking-wide text-ink">Maya Arnould</span>
@@ -183,7 +183,7 @@ const Footer = () => (
 
     <div className="border-t border-powder/50">
       <div className="container-site flex flex-col gap-3 py-5 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
-        <p>© {new Date().getFullYear()} Maya Arnould — Ostéopathe animalier</p>
+        <p>© {new Date().getFullYear()} Maya Arnould, ostéopathe animalier</p>
         <Link to="/mentions-legales.html" className="transition-colors hover:text-ink">Mentions légales</Link>
       </div>
     </div>
