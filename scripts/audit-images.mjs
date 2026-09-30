@@ -1,6 +1,12 @@
 // Audit de netteté : compare la taille réelle de chaque image à la taille
 // où elle s'affiche. Une image plus petite que son cadre est floue ; une
 // image deux fois plus grande est nette sur écran Retina.
+//
+// ⚠️ Avant de recadrer une photo venue d'un téléphone, appliquer
+// `ImageOps.exif_transpose` : le drapeau EXIF d'orientation ne change pas les
+// pixels, seulement la façon de les afficher. L'ignorer donne une image
+// couchée — c'est arrivé sur la photo du chat, stockée en 750×1334 alors
+// qu'elle doit s'afficher en 1334×750.
 import puppeteer from 'puppeteer'
 
 const PAGES = ['/', '/a-propos.html', '/deroulement.html', '/motifs.html', '/tarifs.html',

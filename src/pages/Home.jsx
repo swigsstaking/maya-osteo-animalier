@@ -110,7 +110,7 @@ const PourQuelAnimal = () => (
     <SectionHead
       overline="Pour quel animal"
       title="Je soigne toutes les espèces"
-      lede="Du chat de salon au bovin d’élevage, chaque animal a sa manière de compenser une gêne. Les techniques s’adaptent à son espèce, à son gabarit et à son caractère."
+      lede="Du chat au bovin d’élevage, chaque animal a sa manière de compenser une gêne. Les techniques s’adaptent à son espèce, à son gabarit et à son caractère."
       align="center"
       className="max-w-2xl"
     />
