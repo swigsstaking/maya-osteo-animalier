@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
+import { site } from '../data/site'
 
 /** Remet la page en haut à chaque changement de route. */
 export const ScrollToTop = () => {
@@ -58,7 +59,7 @@ export const CtaBand = ({
         <p className="mt-4 max-w-lg text-base leading-relaxed text-muted">{text}</p>
       </div>
       <div className="flex shrink-0 flex-wrap gap-3">
-        <Link to="/rendez-vous.html" className="btn-primary">Prendre rendez-vous</Link>
+        <a href={site.booking.url} className="btn-primary">Prendre rendez-vous</a>
         {secondary && (
           <Link to={secondary.to} className="btn-outline">{secondary.label}</Link>
         )}

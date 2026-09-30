@@ -42,18 +42,11 @@ export const site = {
   },
 
   // ── Prise de rendez-vous ────────────────────────────────────────────────
-  // L'agenda est servi par Swigs Studio. Il suffit du slug du profil de
-  // réservation de Maya pour l'activer :
-  //   https://calendar.swigs.online/book/<slug>
-  // Tant qu'il est vide, la page /rendez-vous.html affiche les canaux de
-  // contact direct — le site reste donc parfaitement utilisable.
-  //
-  // ⚠️ Le profil n'existe pas encore : au 29.09.2026, l'API publique
-  // (calendar.swigs.online/api/widget/<slug>) répond 404 sur tous les slugs
-  // essayés pour Maya.
+  // La réservation vit sur sa propre page, engendrée par Swigs Studio. Les
+  // boutons « Prendre rendez-vous » y mènent directement : le visiteur y
+  // choisit sa prestation et son créneau sans étape intermédiaire.
   booking: {
-    slug: '',
-    couleur: '#AE4721', // la brique du logo, reprise par le widget
+    url: 'https://maya-arnould.swigs.cloud/',
   },
 }
 

@@ -3,7 +3,7 @@ import { MapPin, Clock, Star } from 'lucide-react'
 import InstagramIcon from '../components/InstagramIcon'
 import SEOHead from '../components/SEOHead'
 import { Section, PageHeader } from '../components/ui'
-import { DirectContact } from '../components/BookingEmbed'
+import { DirectContact } from '../components/ContactDirect'
 import { site } from '../data/site'
 
 const Contact = () => (
@@ -19,7 +19,7 @@ const Contact = () => (
       <div className="grid gap-14 lg:grid-cols-[1fr_0.7fr] lg:gap-16">
         <div>
           <DirectContact />
-          <Link to="/rendez-vous.html" className="btn-primary mt-8">Prendre rendez-vous</Link>
+          <a href={site.booking.url} className="btn-primary mt-8">Prendre rendez-vous</a>
         </div>
 
         <div className="space-y-8">

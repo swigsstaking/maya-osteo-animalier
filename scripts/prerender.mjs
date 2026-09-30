@@ -35,7 +35,6 @@ const ROUTES = [
   '/blog.html',
   '/blog/osteopathie-suivi-du-sportif.html',
   '/blog/le-craquement-est-il-signe-d-un-bon-traitement.html',
-  '/rendez-vous.html',
   '/contact.html',
   '/mentions-legales.html',
 ]

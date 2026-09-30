@@ -22,7 +22,7 @@ const Hero = () => (
           Je me déplace chez vous, dans le canton de Neuchâtel et ses environs.
         </p>
         <div className="mt-9 flex flex-wrap gap-3">
-          <Link to="/rendez-vous.html" className="btn-primary">Prendre rendez-vous</Link>
+          <a href={site.booking.url} className="btn-primary">Prendre rendez-vous</a>
           <Link to="/tarifs.html" className="btn-outline">Les tarifs</Link>
           <a href={site.phoneHref} className="btn-secondary">
             <Phone size={15} strokeWidth={1.7} aria-hidden="true" />

@@ -2,34 +2,11 @@ import { Phone, MessageCircle, Mail } from 'lucide-react'
 import { site } from '../data/site'
 
 /**
- * Agenda de prise de rendez-vous, servi par Swigs Studio.
+ * Les canaux de contact direct : téléphone, WhatsApp, e-mail.
  *
- * Tant que `site.booking.slug` est vide, la page affiche les canaux de contact
- * direct : le visiteur peut toujours joindre Maya. Renseigner le slug de son
- * profil de réservation suffit à activer l'agenda.
- *
- * Intégré en iframe plutôt qu'en script : le widget vit sur un autre domaine,
- * et une iframe l'isole complètement — son CSS ne peut pas déteindre sur le
- * site, et une panne de son côté n'emporte pas la page.
+ * La réservation en ligne vit sur sa propre page (voir site.booking.url) ;
+ * ce bloc reste la voie directe pour qui préfère écrire ou appeler.
  */
-
-// Le widget ne communique pas sa hauteur au parent : on réserve de quoi
-// afficher ses quatre étapes, il défile à l'intérieur si besoin.
-const HAUTEUR = 820
-
-const AgendaSwigs = ({ slug }) => (
-  <iframe
-    src={
-      `https://calendar.swigs.online/book/${encodeURIComponent(slug)}` +
-      `?embed=1&primary=${encodeURIComponent(site.booking.couleur)}`
-    }
-    title="Prendre rendez-vous avec Maya Arnould"
-    loading="lazy"
-    className="w-full rounded-panel border border-powder/60 bg-white"
-    style={{ height: HAUTEUR }}
-  />
-)
-
 const DirectContact = () => {
   // L'adresse se coupait au milieu de « gmail.com » : on force la coupure
   // juste avant l'arobase.
@@ -74,10 +51,5 @@ const DirectContact = () => {
   )
 }
 
-const BookingEmbed = () => {
-  const { slug } = site.booking
-  return slug ? <AgendaSwigs slug={slug} /> : <DirectContact />
-}
-
-export default BookingEmbed
+export default DirectContact
 export { DirectContact }

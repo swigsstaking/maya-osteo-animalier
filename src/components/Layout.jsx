@@ -57,9 +57,9 @@ const Header = () => {
             <Phone size={14} strokeWidth={1.6} aria-hidden="true" />
             {site.phoneDisplay}
           </a>
-          <Link to="/rendez-vous.html" className="btn-primary hidden whitespace-nowrap px-5 py-2.5 sm:inline-flex">
+          <a href={site.booking.url} className="btn-primary hidden whitespace-nowrap px-5 py-2.5 sm:inline-flex">
             Prendre rendez-vous
-          </Link>
+          </a>
           {/* Sous 1024 px, la barre n'a pas la place du numéro en toutes lettres :
               on garde l'appel direct, l'action la plus utilisée depuis un téléphone. */}
           <a
@@ -97,9 +97,9 @@ const Header = () => {
                 {item.label}
               </NavLink>
             ))}
-            <Link to="/rendez-vous.html" className="btn-primary mt-5 w-full">
+            <a href={site.booking.url} className="btn-primary mt-5 w-full">
               Prendre rendez-vous
-            </Link>
+            </a>
             <a href={site.phoneHref} className="mt-3 py-2 text-center text-sm text-muted">
               {site.phoneDisplay}
             </a>
@@ -159,7 +159,7 @@ const Footer = () => (
             </li>
           ))}
           <li>
-            <Link to="/rendez-vous.html" className="transition-colors hover:text-ink">Prendre rendez-vous</Link>
+            <a href={site.booking.url} className="transition-colors hover:text-ink">Prendre rendez-vous</a>
           </li>
         </ul>
       </div>
