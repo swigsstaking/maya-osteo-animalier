@@ -14,11 +14,7 @@ const Secteur = ({ className = '' }) => (
       <CarteSecteur className="mx-auto w-full min-w-[620px] max-w-[880px]" />
     </div>
 
-    <p className="mt-6 text-center text-sm text-muted">
-      Environ {zones.rayonKm} km autour de Chambrelien.
-    </p>
-
-    <ul className="mt-6 flex flex-wrap justify-center gap-x-3 gap-y-2">
+    <ul className="mt-8 flex flex-wrap justify-center gap-x-3 gap-y-2">
       {zones.reperes.map((v) => (
         <li
           key={v}

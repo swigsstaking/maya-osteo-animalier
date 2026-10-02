@@ -137,15 +137,11 @@ const Deroulement = () => (
       title="Comment se passe une consultation ?"
       lede="Six étapes, de la première question posée aux conseils de rééducation."
     />
-    <ol className="mt-14 grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+    <ol className="mt-12 grid auto-rows-fr gap-x-10 sm:grid-cols-2 lg:grid-cols-3">
       {etapes.map((e) => (
-        <li key={e.num}>
-          <div className="flex items-baseline gap-3">
-            <span className="text-sm font-medium text-clay">{e.num}</span>
-            <h3 className="text-lg">{e.titre}</h3>
-          </div>
-          <div className="rule my-4" />
-          <p className="text-[15px] leading-relaxed text-muted">{e.texte}</p>
+        <li key={e.num} className="flex items-baseline gap-4 border-b border-powder/60 py-5">
+          <span className="text-sm font-medium text-clay">{e.num}</span>
+          <h3 className="text-lg">{e.titre}</h3>
         </li>
       ))}
     </ol>
