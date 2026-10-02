@@ -41,8 +41,17 @@ Conséquence à retenir : **une modification de contenu n'apparaît en ligne que
 relancé `npm run prerender` et versionné `prerendered/`.** Un simple `npm run build`
 recopierait l'ancien HTML.
 
-C'est aussi pourquoi `vite.config.js` fixe des noms d'assets sans empreinte de contenu
-(`assets/index.js`) : le HTML versionné doit rester valide après un build distant.
+Les noms d'assets portent une **empreinte de contenu** (`assets/index-DkaWpeAE.js`).
+`apply-prerender.mjs` réécrit les références du HTML versionné vers les fichiers
+réellement produits, de sorte que l'empreinte peut changer à chaque build sans rien
+casser.
+
+⚠️ **Ne jamais figer ces noms.** Ils l'ont été un temps, pour que le HTML versionné
+reste valide tel quel après un build distant. Conséquence : le nom ne changeant plus
+d'une version à l'autre, et l'hébergeur n'envoyant aucun en-tête `Cache-Control`, le
+navigateur d'un visiteur déjà venu resservait l'ancien bundle. Il recevait le bon
+HTML, puis React réaffichait l'ancienne version par-dessus — une mise à jour pouvait
+ainsi passer totalement inaperçue pour qui connaissait déjà le site.
 
 Quand on ajoute une page, cinq endroits à synchroniser — et l'adresse doit se terminer
 en `.html` partout : `src/App.jsx` (route + redirection sans extension) ·

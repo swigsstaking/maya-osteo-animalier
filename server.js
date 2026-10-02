@@ -30,12 +30,12 @@ const MIME = {
   '.woff2': 'font/woff2',
 }
 
-// Les noms d'assets n'ont plus d'empreinte de contenu (voir vite.config.js) :
-// ils ne doivent donc jamais être mis en cache longtemps. Les images, elles,
-// changent de nom quand elles changent.
-const cacheFor = (ext) => {
+// Les noms d'assets portent une empreinte de contenu : un fichier donné ne
+// change jamais, on peut donc le figer. Le HTML, lui, doit être revalidé à
+// chaque visite, sinon une mise à jour n'atteint pas les visiteurs connus.
+const cacheFor = (chemin, ext) => {
   if (ext === '.html' || ext === '') return 'no-cache'
-  if (ext === '.js' || ext === '.css') return 'public, max-age=300, must-revalidate'
+  if (chemin.includes('/assets/')) return 'public, max-age=31536000, immutable'
   return 'public, max-age=604800'
 }
 
@@ -68,7 +68,7 @@ const server = createServer(async (req, res) => {
       const ext = extname(candidate)
       res.writeHead(200, {
         'Content-Type': MIME[ext] || 'application/octet-stream',
-        'Cache-Control': cacheFor(ext),
+        'Cache-Control': cacheFor(candidate, ext),
       })
       res.end(req.method === 'HEAD' ? undefined : data)
       return

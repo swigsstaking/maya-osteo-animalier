@@ -33,12 +33,29 @@ try {
   process.exit(0)
 }
 
+// Les noms d'assets portent une empreinte de contenu, qui change à chaque
+// build. Le HTML versionné cite ceux du build local : on les remplace par les
+// fichiers réellement présents, sinon la page chargerait des URL inexistantes.
+const assets = await readdir(join(DIST, 'assets'))
+const entree = (ext) => {
+  const trouves = assets.filter((f) => f.endsWith(ext))
+  if (trouves.length !== 1) {
+    throw new Error(`apply-prerender : ${trouves.length} fichier(s) ${ext} dans dist/assets, un seul attendu (${trouves.join(', ')})`)
+  }
+  return 'assets/' + trouves[0]
+}
+const js = entree('.js')
+const css = entree('.css')
+
 let n = 0
 for await (const file of walk(SRC)) {
   const rel = relative(SRC, file)
   const out = join(DIST, rel)
   await mkdir(dirname(out), { recursive: true })
-  await writeFile(out, await readFile(file))
+  const html = (await readFile(file, 'utf8'))
+    .replace(/assets\/[^"']+\.js/g, js)
+    .replace(/assets\/[^"']+\.css/g, css)
+  await writeFile(out, html)
   n++
 }
-console.log(`  apply-prerender : ${n} pages prérendues copiées dans dist/.`)
+console.log(`  apply-prerender : ${n} pages copiées, assets pointés sur ${js} et ${css}.`)
