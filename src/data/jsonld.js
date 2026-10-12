@@ -1,5 +1,6 @@
 import { site } from './site'
 import seo from './seo.json'
+import { faq } from './content'
 
 const address = {
   '@type': 'PostalAddress',
@@ -61,6 +62,16 @@ export const localBusinessJsonLd = {
     itemOffered: { '@type': 'Service', name: `Ostéopathie pour ${animal}` },
     price: String(prix),
     priceCurrency: 'CHF',
+  })),
+}
+
+export const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map(({ question, reponse }) => ({
+    '@type': 'Question',
+    name: question,
+    acceptedAnswer: { '@type': 'Answer', text: reponse },
   })),
 }
 

@@ -16,6 +16,8 @@
 - [x] Prérendu statique des 11 routes (SEO + liens profonds sans fallback SPA)
 - [x] Revue visuelle 1440 px et 390 px, aucune erreur console, pas de scroll horizontal
 - [x] README de passation
+- [x] Questions fréquentes sur l'accueil (5 questions de Maya, `faq` dans `content.js`,
+      accordéon `<details>` avant le bandeau final, JSON-LD FAQPage), vérifié en 1440 et 390 px
 
 ## Reste à faire
 

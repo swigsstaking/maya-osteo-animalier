@@ -133,3 +133,32 @@ export const valeurs = [
   { titre: 'Globalité', texte: 'Une lecture du corps entier : musculo-squelettique, viscérale et crânienne.' },
   { titre: 'Proximité', texte: "Je me déplace chez vous, dans un lieu où l'animal est en confiance." },
 ]
+
+// Questions fréquentes, rédigées par Maya (octobre 2026).
+export const faq = [
+  {
+    question: "Comment se passe une séance d'ostéopathie animale ?",
+    reponse:
+      "La séance se passe à votre domicile. Elle commence par un échange sur les habitudes et les antécédents médicaux de votre animal. Elle se poursuit par un examen dynamique et palpatoire, puis des tests articulaires, viscéraux et crâniens. Le traitement est ensuite adapté à ses besoins, avant de terminer par des conseils personnalisés.",
+  },
+  {
+    question: 'À partir de quel âge je peux amener mon animal voir un ostéopathe animalier ?',
+    reponse:
+      "Un animal peut consulter un ostéopathe animalier à tout âge, du chiot, chaton, poulain à l'animal senior. La séance est adaptée à son âge, sa croissance et ses besoins.",
+  },
+  {
+    question: "Que doit-on préparer avant une séance d'ostéopathie animale ?",
+    reponse:
+      'Avant la séance, préparez les antécédents médicaux de votre animal, ses traitements en cours, ses comptes rendus vétérinaires et les éventuelles gênes observées. Évitez également tout exercice physique intense dans les 2 heures précédant le rendez-vous.',
+  },
+  {
+    question: 'Que dois-je faire après la séance ?',
+    reponse:
+      "Après une séance, votre animal peut être fatigué. Prévoyez 48 heures de repos pour lui permettre de s'adapter aux changements et aux nouvelles mobilités. Les petites balades tranquilles en laisse restent possibles.",
+  },
+  {
+    question: "Quels signes peuvent indiquer que mon animal a besoin d'une séance d'ostéopathie animale ?",
+    reponse:
+      "Une raideur, une boiterie, une difficulté à sauter dans la voiture, à monter les escaliers ou à se déplacer, une baisse de performance ou un changement de comportement peuvent indiquer une gêne chez votre animal. L'ostéopathie animale peut l'accompagner en complément du suivi vétérinaire, sans jamais le remplacer.",
+  },
+]

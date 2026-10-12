@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom'
-import { Star, Phone } from 'lucide-react'
+import { Star, Phone, Plus } from 'lucide-react'
 import SEOHead from '../components/SEOHead'
 import { Section, SectionHead, ArrowLink, CtaBand } from '../components/ui'
 import Secteur from '../components/Secteur'
 import { site } from '../data/site'
-import { animaux, etapes, motifs, avis, apropos, osteopathie, valeurs } from '../data/content'
-import { localBusinessJsonLd } from '../data/jsonld'
+import { animaux, etapes, motifs, avis, apropos, osteopathie, valeurs, faq } from '../data/content'
+import { localBusinessJsonLd, faqJsonLd } from '../data/jsonld'
 
 const Hero = () => (
   <section className="relative isolate overflow-hidden bg-sand">
@@ -227,9 +227,38 @@ const Zone = () => (
   </Section>
 )
 
+// <details> natif : les réponses sont dans le HTML prérendu et s'ouvrent sans JavaScript.
+const Faq = () => (
+  <Section id="questions">
+    <div className="grid gap-10 lg:grid-cols-[0.8fr_1fr] lg:gap-16">
+      <SectionHead
+        overline="Questions fréquentes"
+        title="Vos questions, mes réponses"
+        lede="Ce que l’on me demande le plus souvent avant une première séance."
+      />
+      <div className="border-t border-powder/60">
+        {faq.map((f) => (
+          <details key={f.question} className="group border-b border-powder/60">
+            <summary className="flex cursor-pointer list-none items-start justify-between gap-6 py-5 [&::-webkit-details-marker]:hidden">
+              <h3 className="text-lg">{f.question}</h3>
+              <Plus
+                size={18}
+                strokeWidth={1.6}
+                className="mt-1 shrink-0 text-clay transition-transform duration-200 group-open:rotate-45"
+                aria-hidden="true"
+              />
+            </summary>
+            <p className="pb-6 pr-10 text-[15px] leading-relaxed text-muted">{f.reponse}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </Section>
+)
+
 const Home = () => (
   <>
-    <SEOHead page="home" jsonLd={localBusinessJsonLd} />
+    <SEOHead page="home" jsonLd={[localBusinessJsonLd, faqJsonLd]} />
     <Hero />
     <PourQuelAnimal />
     <Osteopathie />
@@ -239,6 +268,7 @@ const Home = () => (
     <Valeurs />
     <Avis />
     <Zone />
+    <Faq />
     <CtaBand />
   </>
 )
