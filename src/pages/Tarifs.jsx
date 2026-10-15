@@ -17,7 +17,7 @@ const Tarifs = () => (
         {tarifs.map((t, i) => (
           <li
             key={t.animal}
-            className={`flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 py-6 ${
+            className={`flex items-baseline justify-between gap-6 py-6 ${
               i !== 0 ? 'border-t border-powder/60' : 'pt-0'
             }`}
           >
@@ -25,7 +25,7 @@ const Tarifs = () => (
               <h2 className="text-xl">{t.animal}</h2>
               <p className="mt-1 text-sm text-muted">{t.lieu}</p>
             </div>
-            <p className="text-xl text-brick">
+            <p className="shrink-0 whitespace-nowrap text-xl text-brick">
               {t.prix} <span className="text-sm text-muted">CHF</span>
             </p>
           </li>
