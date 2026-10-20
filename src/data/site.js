@@ -5,7 +5,7 @@ export const site = {
   name: 'Maya Arnould',
   role: 'Ostéopathe animalier',
   baseline: 'Du confort en douceur, pour chaque animal.',
-  url: 'https://www.maya-osteo-animalier.ch',
+  url: 'https://maya-osteo-animalier.ch',
 
   phone: '+41 76 530 79 62',
   phoneDisplay: '076 530 79 62',
@@ -46,7 +46,7 @@ export const site = {
   // boutons « Prendre rendez-vous » y mènent directement : le visiteur y
   // choisit sa prestation et son créneau sans étape intermédiaire.
   booking: {
-    url: 'https://maya-arnould.swigs.cloud/',
+    url: 'https://booking.maya-osteo-animalier.ch/',
   },
 }
 

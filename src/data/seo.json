@@ -3,14 +3,14 @@
     "name": "Maya Arnould, ostéopathe animalier",
     "slug": "maya-osteo-animalier",
     "domain": "maya-osteo-animalier.ch",
-    "url": "https://www.maya-osteo-animalier.ch",
+    "url": "https://maya-osteo-animalier.ch",
     "language": "fr",
-    "ogImage": "https://www.maya-osteo-animalier.ch/images/maya-portrait-lac.webp"
+    "ogImage": "https://maya-osteo-animalier.ch/images/maya-portrait-lac.webp"
   },
   "pages": {
     "home": {
       "title": "Maya Arnould, ostéopathe animalier | Neuchâtel, Berne, Fribourg, Vaud",
-      "description": "Ostéopathie animale douce et globale pour chevaux, chiens, chats, bovins et NAC. Consultations à domicile dans le canton de Neuchâtel et ses environs, d'Yverdon-les-Bains à Bienne et Fribourg.",
+      "description": "Ostéopathe animalier à domicile pour chevaux, chiens, chats, bovins et NAC, dans le canton de Neuchâtel, d'Yverdon-les-Bains à Bienne et Fribourg.",
       "keywords": [
         "ostéopathe animalier",
         "ostéopathie animale",
@@ -29,7 +29,7 @@
     },
     "apropos": {
       "title": "À propos de moi | Maya Arnould, ostéopathe animalier",
-      "description": "Maya Arnould, ostéopathe pour les animaux diplômée de l'ESAO après cinq années d'études. Cavalière depuis toujours, j'interviens à domicile dans le canton de Neuchâtel et ses environs.",
+      "description": "Maya Arnould, ostéopathe animalier diplômée de l'ESAO après cinq ans d'études. Cavalière depuis toujours, j'interviens à domicile autour de Neuchâtel.",
       "keywords": [
         "Maya Arnould",
         "ESAO",
@@ -51,7 +51,7 @@
     },
     "motifs": {
       "title": "Motifs de consultation | Quand consulter un ostéopathe animalier ?",
-      "description": "Boiterie, raideur au réveil, difficulté à monter les escaliers, baisse de performance, récupération après une opération : les situations dans lesquelles l'ostéopathie animale peut aider.",
+      "description": "Boiterie, raideur, difficulté à sauter ou à monter les escaliers, baisse de performance, suites d'opération : quand consulter un ostéopathe animalier.",
       "keywords": [
         "motifs de consultation",
         "boiterie",
