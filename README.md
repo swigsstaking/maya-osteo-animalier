@@ -20,6 +20,9 @@ npm run prerender    # à relancer EN LOCAL après toute modification de contenu
 npm run audit        # cherche ce qui déborde, 10 pages × 6 largeurs
 ```
 
+`llms.txt` (résumé du site pour les assistants IA) est engendré à chaque build par
+`scripts/llms.mjs` depuis `src/data/` : rien à mettre à jour à la main.
+
 `npm run audit` a besoin du site servi en local (`npm run build`, puis
 `node server.js` sur le port 5265). `ZOOM_POLICE=125 npm run audit` rejoue le
 même passage avec le texte agrandi, le réglage d'accessibilité qui fait sauter
