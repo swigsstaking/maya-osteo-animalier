@@ -1,0 +1,18 @@
+# Lu par le serveur statique de Swigs Cloud (format Netlify). Les sources sont
+# comparées décodées : /%C3%A0-propos-de-moi et /à-propos-de-moi sont la même règle.
+
+# Anciennes adresses du site Wix : 301 côté serveur, que les moteurs suivent,
+# au lieu de la redirection faite en JavaScript par <AncienneAdresse />.
+/à-propos-de-moi             /a-propos.html     301
+/déroulement-d-une-séance    /deroulement.html  301
+/motifs-de-consultation      /motifs.html       301
+/contact-2                   /contact.html      301
+/post/*                      /blog.html         301
+
+# La réservation vit sur sa propre adresse.
+/rendez-vous                 https://booking.maya-osteo-animalier.ch/  301
+/rendez-vous.html            https://booking.maya-osteo-animalier.ch/  301
+
+# Toutes les pages du site sont prérendues : une adresse inconnue est une
+# vraie 404, pas l'accueil en 200.
+/*                           /404.html          404
